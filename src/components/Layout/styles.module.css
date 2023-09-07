@@ -1,0 +1,18 @@
+.layout-container {
+    display: flex;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.5rem;
+    height: 30vh;
+    width: 92%;
+    z-index: 10;
+}
+
+.layout-container .smile-logo {
+    margin-top: 4rem;
+}

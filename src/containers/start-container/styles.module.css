@@ -1,0 +1,38 @@
+.start-container {
+    position: relative;
+    height: 100vh;
+    background-image: url(../../assets/images/start-background.png);
+}
+
+
+.start-container .content-wrapper {
+    position: absolute;
+    top: 15rem;
+    margin: auto;
+    width: 100%;
+}
+
+.start-container .content-wrapper .description {
+    color: white;
+    text-align: center;
+}
+
+.start-container .content-wrapper .start-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 22rem;
+    height: 4rem;
+    padding: 0.5rem 2.5rem;
+    border-radius: 4.80381rem;
+    background: #F8A61F;
+    margin: auto;
+    color: #1D1E25;
+    text-align: center;
+    font-size: 2.30588rem;
+    font-weight: 700;
+    border: none;
+    margin-top: 3rem;
+    cursor: pointer;
+}
