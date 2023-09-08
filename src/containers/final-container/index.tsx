@@ -1,7 +1,7 @@
-import React from "react";
+import styles from "./styles.module.css";
 
 const FinalContainer = () => {
-  return <div>FinalContainer</div>;
+  return <div className={styles["final-container"]}></div>;
 };
 
 export default FinalContainer;

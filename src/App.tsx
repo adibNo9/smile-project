@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -14,13 +15,14 @@ import Start from "./pages/start";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Start />} />
+      <Route index element={<Navigate to="/start" replace />} />
+      <Route path="start" element={<Start />} />
       <Route path="game" element={<Game />} />
       <Route path="final" element={<Final />} />
 
       <Route path="*" element={<NoMatch />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 function App() {

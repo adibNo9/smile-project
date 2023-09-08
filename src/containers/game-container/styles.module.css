@@ -1,0 +1,57 @@
+.game-container {
+    background: radial-gradient(328% 114% at 100% 80.83%, #FFA000 0%, #141517 17%, #141517 88%, #00CAD4 95%);
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 40vh;
+    height: 50vh;
+}
+
+.score-wrapper svg {
+    width: 32vw;
+    height: 32vw;
+    margin-left: -5vw;
+}
+
+.game-wrapper {
+    width: 32vw;
+    height: 32vw;
+    margin-left: -4vw;
+    margin-top: -15vh;
+}
+
+.game-wrapper svg {
+    width: 32vw;
+    height: 32vw;
+}
+
+.game-wrapper svg:nth-child(2) {
+    width: 32vw;
+    height: 32vw;
+    margin-top: -33vh;
+}
+
+.face-smile-wrapper {
+    background-image: url(../../assets/icons/face-background.svg);
+    background-repeat: no-repeat;
+    width: 22vw;
+    height: 22vw;
+    border-radius: 1.5rem;
+    margin: 2vh 0 5vw;
+}
+
+.face-smile-wrapper img {
+    width: 22vw;
+}
+
+.game-couter {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}

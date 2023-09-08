@@ -1,6 +1,7 @@
 .steps-container {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: auto;
-    margin: auto;
+    margin: 2rem 0 auto;
 }

@@ -14,8 +14,8 @@ const GameSvg = () => {
         height="346.403"
         rx="33.4738"
         stroke="white"
-        stroke-opacity="0.5"
-        stroke-width="1.7166"
+        strokeOpacity="0.5"
+        strokeWidth="1.7166"
       />
       <rect
         x="0.881682"
@@ -25,8 +25,8 @@ const GameSvg = () => {
         rx="33.4738"
         transform="matrix(0.995062 -0.0992598 0.0321795 0.999482 -0.0205097 54.2706)"
         stroke="white"
-        stroke-opacity="0.5"
-        stroke-width="1.7166"
+        strokeOpacity="0.5"
+        strokeWidth="1.7166"
       />
     </svg>
   );

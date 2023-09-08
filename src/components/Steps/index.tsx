@@ -1,3 +1,4 @@
+import { ArrowSvg } from "../../assets/icons/arrow-svg";
 import GameSvg from "../../assets/icons/game-svg";
 import StepCard from "../StepCard";
 import styles from "./styles.module.css";
@@ -8,9 +9,11 @@ const Steps = () => {
       <StepCard>
         <GameSvg />
       </StepCard>
+      <ArrowSvg />
       <StepCard>
         <GameSvg />
       </StepCard>
+      <ArrowSvg />
       <StepCard>
         <GameSvg />
       </StepCard>
