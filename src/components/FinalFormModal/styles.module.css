@@ -1,0 +1,41 @@
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(25px);
+    background: rgba(21, 22, 24, 0.60);
+    z-index: 5;
+}
+
+.final-form-modal {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.gift-wrapper {
+    position: relative;
+}
+
+.gift-wrapper svg {
+    width: 40rem;
+    height: 35rem;
+    margin-right: -6rem;
+}
+
+.gift-wrapper img {
+    width: 40rem;
+    height: 35rem;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}

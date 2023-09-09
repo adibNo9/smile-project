@@ -20,7 +20,7 @@ const CounterModal = () => {
 
   return (
     <>
-      <div className={styles.backdrop}>CounterModal</div>
+      <div className={styles.backdrop} />
       <div className={styles["counter-modal"]}>
         <CounterBorderSvg />
         <p className={styles["counter-number"]}>{counter}</p>
