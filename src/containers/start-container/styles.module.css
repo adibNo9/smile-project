@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.start-container .content-wrapper .start-button {
+ .start-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,4 +35,11 @@
     border: none;
     margin-top: 3rem;
     cursor: pointer;
+}
+.start-button:hover {
+    background: rgba(255, 194, 0, 0.60);
+}
+
+.start-button:disabled {
+    background: rgba(255, 194, 0, 0.38);
 }

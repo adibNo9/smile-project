@@ -130,6 +130,13 @@
     margin-bottom: 2.5rem;
 }
 
+.form-wrapper form button:hover {
+    background: rgba(255, 194, 0, 0.60);
+}
+
+.form-wrapper form button:disabled {
+    background: rgba(255, 194, 0, 0.38);
+}
 .survey-wrapper {
     display: flex;
     justify-content: center;
