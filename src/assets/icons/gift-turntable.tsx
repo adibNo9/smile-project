@@ -13,7 +13,7 @@ export const GiftTurntable = () => {
         d="M272.474 156.435C276.109 199.994 243.744 238.252 200.185 241.886C156.627 245.521 118.369 213.156 114.734 169.598C111.099 126.039 143.464 87.7814 187.023 84.1466C230.581 80.5119 268.839 112.877 272.474 156.435Z"
         fill="url(#paint0_radial_204_172)"
         stroke="#142D56"
-        stroke-width="0.83283"
+        strokeWidth="0.83283"
       />
       <g filter="url(#filter0_f_204_172)">
         <ellipse
@@ -22,19 +22,19 @@ export const GiftTurntable = () => {
           rx="51.4759"
           ry="15.2562"
           fill="url(#paint1_linear_204_172)"
-          fill-opacity="0.4"
+          fillOpacity="0.4"
         />
         <path
           d="M243.085 180.536C243.085 181.779 242.226 183.326 239.79 185.033C237.403 186.705 233.835 188.283 229.268 189.637C220.156 192.337 207.463 194.032 193.369 194.032C179.274 194.032 166.581 192.337 157.469 189.637C152.902 188.283 149.334 186.705 146.947 185.033C144.511 183.326 143.652 181.779 143.652 180.536C143.652 179.292 144.511 177.745 146.947 176.038C149.334 174.366 152.902 172.788 157.469 171.434C166.581 168.734 179.274 167.039 193.369 167.039C207.463 167.039 220.156 168.734 229.268 171.434C233.835 172.788 237.403 174.366 239.79 176.038C242.226 177.745 243.085 179.292 243.085 180.536Z"
           stroke="url(#paint2_linear_204_172)"
-          stroke-width="3.51857"
+          strokeWidth="3.51857"
         />
       </g>
       <g filter="url(#filter1_f_204_172)">
         <path
           d="M244.845 180.536C244.845 188.961 221.799 195.792 193.369 195.792"
           stroke="url(#paint3_linear_204_172)"
-          stroke-width="8.79643"
+          strokeWidth="8.79643"
         />
       </g>
       <ellipse
@@ -45,8 +45,8 @@ export const GiftTurntable = () => {
         fill="url(#paint4_linear_204_172)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M193.37 211.009C220.197 211.009 241.945 202.906 241.945 192.91C241.945 182.915 220.197 174.812 193.37 174.812C166.543 174.812 144.795 182.915 144.795 192.91C144.795 202.906 166.543 211.009 193.37 211.009ZM193.37 210.58C219.561 210.58 240.793 202.669 240.793 192.91C240.793 183.152 219.561 175.241 193.37 175.241C167.178 175.241 145.946 183.152 145.946 192.91C145.946 202.669 167.178 210.58 193.37 210.58Z"
         fill="url(#paint5_linear_204_172)"
       />
@@ -54,46 +54,46 @@ export const GiftTurntable = () => {
         <path
           d="M193.597 230.212L105.911 106.486L283.309 106.486L193.597 230.212Z"
           fill="url(#paint6_linear_204_172)"
-          fill-opacity="0.6"
+          fillOpacity="0.6"
         />
       </g>
       <g filter="url(#filter3_df_204_172)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M193.37 211.009C220.197 211.009 241.945 202.906 241.945 192.91C241.945 182.915 220.197 174.812 193.37 174.812C166.543 174.812 144.795 182.915 144.795 192.91C144.795 202.906 166.543 211.009 193.37 211.009ZM193.37 210.658C219.561 210.658 240.793 202.712 240.793 192.91C240.793 183.108 219.561 175.162 193.37 175.162C167.178 175.162 145.946 183.108 145.946 192.91C145.946 202.712 167.178 210.658 193.37 210.658Z"
           fill="url(#paint7_linear_204_172)"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
       <g filter="url(#filter4_f_204_172)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M193.369 201.761C212.859 201.761 228.658 196.754 228.658 190.578C228.658 184.402 212.859 179.396 193.369 179.396C173.88 179.396 158.08 184.402 158.08 190.578C158.08 196.754 173.88 201.761 193.369 201.761ZM193.369 200.928C211.407 200.928 226.029 196.294 226.029 190.578C226.029 184.863 211.407 180.229 193.369 180.229C175.332 180.229 160.709 184.863 160.709 190.578C160.709 196.294 175.332 200.928 193.369 200.928Z"
           fill="url(#paint8_linear_204_172)"
         />
       </g>
       <g filter="url(#filter5_d_204_172)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M193.369 201.761C212.859 201.761 228.658 196.754 228.658 190.578C228.658 184.402 212.859 179.396 193.369 179.396C173.88 179.396 158.08 184.402 158.08 190.578C158.08 196.754 173.88 201.761 193.369 201.761ZM193.369 200.928C211.407 200.928 226.029 196.294 226.029 190.578C226.029 184.863 211.407 180.229 193.369 180.229C175.332 180.229 160.709 184.863 160.709 190.578C160.709 196.294 175.332 200.928 193.369 200.928Z"
           fill="url(#paint9_linear_204_172)"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M242.086 193.022C242.086 192.985 242.087 192.948 242.087 192.91C242.105 192.864 242.123 192.816 242.143 192.768L244.466 182.39C241.378 189.941 219.678 195.792 193.367 195.792C166.693 195.792 144.757 189.779 142.15 182.076L144.718 193.261C147.228 203.989 166.568 211.009 193.36 211.009C217.169 211.009 237.096 204.626 241.279 196.203L241.69 194.791L242.086 193.022Z"
         fill="url(#paint10_linear_204_172)"
-        fill-opacity="0.5"
+        fillOpacity="0.5"
       />
       <g filter="url(#filter6_f_204_172)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M212.382 189.043C212.382 192.37 203.869 195.068 193.369 195.068C182.868 195.068 174.355 192.37 174.355 189.043C174.355 185.715 182.868 183.018 193.369 183.018C202.506 183.018 210.139 185.061 211.966 187.784H210.459C208.573 185.482 201.637 183.774 193.368 183.774C183.65 183.774 175.771 186.133 175.771 189.043C175.771 191.953 183.65 194.311 193.368 194.311C203.086 194.311 210.964 191.953 210.964 189.043L212.382 189.043Z"
           fill="url(#paint11_linear_204_172)"
         />
@@ -112,11 +112,11 @@ export const GiftTurntable = () => {
       </g>
       <g filter="url(#filter9_f_204_172)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M239.771 195.333L240.007 190.322C239.03 190.967 237.945 191.59 236.762 192.188C236.657 193.765 236.532 195.642 236.419 197.548C237.668 196.837 238.789 196.097 239.771 195.333ZM232.536 199.488L232.797 193.959C231.215 194.585 229.513 195.175 227.704 195.725C227.582 197.617 227.459 199.629 227.371 201.475C229.218 200.854 230.945 200.19 232.536 199.488ZM222.902 202.83L223.176 196.964C220.982 197.502 218.667 197.987 216.248 198.413C216.116 200.443 215.986 202.572 215.9 204.463C218.353 203.979 220.693 203.432 222.902 202.83Z"
           fill="#B6E9FF"
-          fill-opacity="0.4"
+          fillOpacity="0.4"
         />
       </g>
       <g filter="url(#filter10_f_204_172)">
@@ -129,7 +129,7 @@ export const GiftTurntable = () => {
         <path
           d="M191.049 200.79C176.884 200.566 163.556 197.481 158.234 195.782L157.696 200.251C160.554 201.797 163.829 202.953 168.586 203.912L168.763 202.621C169.969 202.928 173.575 203.357 175.228 203.534L175.366 201.594C180.92 202.602 187.431 202.755 190.841 202.834L190.886 202.836C190.884 202.683 190.999 201.904 191.049 200.79Z"
           fill="#B6E9FF"
-          fill-opacity="0.4"
+          fillOpacity="0.4"
         />
       </g>
       <g filter="url(#filter12_d_204_172)">
@@ -146,9 +146,9 @@ export const GiftTurntable = () => {
           width="109.988"
           height="37.5495"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -167,9 +167,9 @@ export const GiftTurntable = () => {
           width="62.9121"
           height="26.6916"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -188,9 +188,9 @@ export const GiftTurntable = () => {
           width="388.511"
           height="334.841"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -209,9 +209,9 @@ export const GiftTurntable = () => {
           width="125.299"
           height="64.3452"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -248,9 +248,9 @@ export const GiftTurntable = () => {
           width="98.7267"
           height="50.5137"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -269,9 +269,9 @@ export const GiftTurntable = () => {
           width="133.912"
           height="85.6994"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -304,9 +304,9 @@ export const GiftTurntable = () => {
           width="45.0625"
           height="19.087"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -325,9 +325,9 @@ export const GiftTurntable = () => {
           width="51.7853"
           height="29.9812"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -346,9 +346,9 @@ export const GiftTurntable = () => {
           width="138.02"
           height="127.227"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -367,9 +367,9 @@ export const GiftTurntable = () => {
           width="38.1817"
           height="28.2155"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -388,9 +388,9 @@ export const GiftTurntable = () => {
           width="34.9083"
           height="30.9338"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -409,9 +409,9 @@ export const GiftTurntable = () => {
           width="47.4278"
           height="22.2048"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -430,9 +430,9 @@ export const GiftTurntable = () => {
           width="124.01"
           height="121.864"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -466,7 +466,7 @@ export const GiftTurntable = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(191.644 165.453) rotate(-176.63) scale(185.056 185.056)"
         >
-          <stop offset="0.0729167" stop-color="#151618" />
+          <stop offset="0.0729167" stopColor="#151618" />
         </radialGradient>
         <linearGradient
           id="paint1_linear_204_172"
@@ -476,8 +476,8 @@ export const GiftTurntable = () => {
           y2="195.792"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DEF9FF" stop-opacity="0.5" />
-          <stop offset="1" stop-color="#E9FBFF" stop-opacity="0" />
+          <stop stopColor="#DEF9FF" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#E9FBFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_204_172"
@@ -487,8 +487,8 @@ export const GiftTurntable = () => {
           y2="160.527"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E8FEFF" />
-          <stop offset="1" stop-color="#E8FEFF" stop-opacity="0" />
+          <stop stopColor="#E8FEFF" />
+          <stop offset="1" stopColor="#E8FEFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_204_172"
@@ -498,9 +498,9 @@ export const GiftTurntable = () => {
           y2="182.325"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E8FEFF" stop-opacity="0" />
-          <stop offset="0.599389" stop-color="#E8FEFF" />
-          <stop offset="1" stop-color="#E8FEFF" stop-opacity="0" />
+          <stop stopColor="#E8FEFF" stopOpacity="0" />
+          <stop offset="0.599389" stopColor="#E8FEFF" />
+          <stop offset="1" stopColor="#E8FEFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_204_172"
@@ -510,8 +510,8 @@ export const GiftTurntable = () => {
           y2="210.58"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DEF9FF" stop-opacity="0.5" />
-          <stop offset="1" stop-color="#E9FBFF" stop-opacity="0" />
+          <stop stopColor="#DEF9FF" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#E9FBFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_204_172"
@@ -521,8 +521,8 @@ export const GiftTurntable = () => {
           y2="211.009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DEF9FF" stop-opacity="0.5" />
-          <stop offset="1" stop-color="#E9FBFF" stop-opacity="0.9" />
+          <stop stopColor="#DEF9FF" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#E9FBFF" stopOpacity="0.9" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_204_172"
@@ -532,9 +532,9 @@ export const GiftTurntable = () => {
           y2="106.486"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.250952" stop-color="#5FF5FF" stop-opacity="0" />
-          <stop offset="0.453702" stop-color="#5FE2FF" />
-          <stop offset="1" stop-color="#5FD8FF" stop-opacity="0" />
+          <stop offset="0.250952" stopColor="#5FF5FF" stopOpacity="0" />
+          <stop offset="0.453702" stopColor="#5FE2FF" />
+          <stop offset="1" stopColor="#5FD8FF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_204_172"
@@ -544,8 +544,8 @@ export const GiftTurntable = () => {
           y2="211.009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DEF9FF" stop-opacity="0.5" />
-          <stop offset="1" stop-color="#E9FBFF" stop-opacity="0.9" />
+          <stop stopColor="#DEF9FF" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#E9FBFF" stopOpacity="0.9" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_204_172"
@@ -555,8 +555,8 @@ export const GiftTurntable = () => {
           y2="201.761"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9FF9FF" />
-          <stop offset="1" stop-color="#A9FFFA" stop-opacity="0.6" />
+          <stop stopColor="#9FF9FF" />
+          <stop offset="1" stopColor="#A9FFFA" stopOpacity="0.6" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_204_172"
@@ -566,8 +566,8 @@ export const GiftTurntable = () => {
           y2="201.761"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#72F7FF" />
-          <stop offset="1" stop-color="#A9FFFA" stop-opacity="0.6" />
+          <stop stopColor="#72F7FF" />
+          <stop offset="1" stopColor="#A9FFFA" stopOpacity="0.6" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_204_172"
@@ -577,9 +577,9 @@ export const GiftTurntable = () => {
           y2="196.543"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B4F1FF" />
-          <stop offset="0.472727" stop-color="#D8FFFD" stop-opacity="0" />
-          <stop offset="1" stop-color="#B4F1FF" />
+          <stop stopColor="#B4F1FF" />
+          <stop offset="0.472727" stopColor="#D8FFFD" stopOpacity="0" />
+          <stop offset="1" stopColor="#B4F1FF" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_204_172"
@@ -589,8 +589,8 @@ export const GiftTurntable = () => {
           y2="195.068"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#72F7FF" />
-          <stop offset="1" stop-color="#96FFF9" stop-opacity="0.6" />
+          <stop stopColor="#72F7FF" />
+          <stop offset="1" stopColor="#96FFF9" stopOpacity="0.6" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_204_172"
@@ -600,9 +600,9 @@ export const GiftTurntable = () => {
           y2="129.247"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.250952" stop-color="#5FF5FF" stop-opacity="0" />
-          <stop offset="0.453702" stop-color="#5FE2FF" />
-          <stop offset="1" stop-color="#5FD8FF" stop-opacity="0" />
+          <stop offset="0.250952" stopColor="#5FF5FF" stopOpacity="0" />
+          <stop offset="0.453702" stopColor="#5FE2FF" />
+          <stop offset="1" stopColor="#5FD8FF" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

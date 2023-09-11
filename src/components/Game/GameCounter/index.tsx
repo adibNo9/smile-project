@@ -93,7 +93,7 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
   const timeWithMilliseconds = formatTime(countdown);
 
   return (
-    <div>
+    <>
       <div
         style={{
           pointerEvents: isPlaying ? "none" : "all",
@@ -127,7 +127,7 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
           ></circle>
         </svg>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -23,7 +23,9 @@ const CounterModal = () => {
       <div className={styles.backdrop} />
       <div className={styles["counter-modal"]}>
         <CounterBorderSvg />
-        <p className={styles["counter-number"]}>{counter}</p>
+        <div className={styles["number-wrapper"]}>
+          <p className={styles["counter-number"]}>{counter}</p>
+        </div>
       </div>
     </>
   );

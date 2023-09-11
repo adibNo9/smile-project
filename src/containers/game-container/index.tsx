@@ -3,16 +3,12 @@ import "video-react/dist/video-react.css";
 import { useEffect, useState } from "react";
 
 import { RecordRTCPromisesHandler } from "recordrtc";
-// @ts-ignore
-import { ControlBar, Player } from "video-react";
 
-import { ArrowTurntable } from "../../assets/icons/arrow-turntable";
-import { GamePlaceSvg } from "../../assets/icons/game-place-svg";
-import { GiftTurntable } from "../../assets/icons/gift-turntable";
-import { MainGameSvg } from "../../assets/icons/main-game-svg";
 import { ScoreSvg } from "../../assets/icons/score-svg";
 import FinalFormModal from "../../components/FinalFormModal";
-import GameCounter from "../../components/GameCounter";
+import GameCounter from "../../components/Game/GameCounter";
+import GameMediaRecorder from "../../components/Game/GameMediaRecorder";
+import GameTurntable from "../../components/Game/GameTurntable";
 import styles from "./styles.module.css";
 
 const GameContainer = () => {
@@ -55,7 +51,7 @@ const GameContainer = () => {
 
   const showFormHandler = () => {
     // setIsShowForm(true);
-     setIsShowForm(false);
+    setIsShowForm(false);
     stopRecording();
   };
 
@@ -68,31 +64,10 @@ const GameContainer = () => {
           <ScoreSvg />
         </div>
         <div className={styles["game-wrapper"]}>
-          <div className={styles["turntable-game"]}>
-            <div className={styles["arrow-turntable"]}>
-              <ArrowTurntable />
-            </div>
-            <div className={styles["gift-turntable"]}>
-              <GiftTurntable />
-            </div>
-            <MainGameSvg />
-          </div>
-
-          <div className={styles["turntable-place"]}>
-            <GamePlaceSvg />
-          </div>
+          <GameTurntable />
         </div>
-        <div className={styles["face-smile-wrapper"]}>
-          {!!videoBlob && (
-            <Player
-              width={245}
-              height={290}
-              src={window.URL.createObjectURL(videoBlob)}
-              autoPlay
-            >
-              <ControlBar className={styles["video-control"]} />
-            </Player>
-          )}
+        <div className={styles["game-media-recorder"]}>
+          <GameMediaRecorder videoBlob={videoBlob} />
         </div>
       </div>
       <div className={styles["game-couter"]}>

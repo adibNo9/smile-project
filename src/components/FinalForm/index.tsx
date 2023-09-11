@@ -24,7 +24,10 @@ const initialValues: LoginFormValues = {
 };
 
 const FinalFormSchema = Yup.object().shape({
-  name: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
   feedback: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
   email: Yup.string().email("Invalid email"),
   feedbackMessage: Yup.string().max(250, "Too Long!"),
@@ -60,7 +63,7 @@ const FinalForm = () => {
           validationSchema={FinalFormSchema}
           onSubmit={handleSubmit}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, isValid }) => (
             <Form noValidate>
               <div className={styles["field-wrapper"]}>
                 <Field
@@ -117,7 +120,9 @@ const FinalForm = () => {
                 autoComplete="off"
               />
 
-              <button type="submit">Submit</button>
+              <button type="submit" disabled={!isValid}>
+                Submit
+              </button>
             </Form>
           )}
         </Formik>

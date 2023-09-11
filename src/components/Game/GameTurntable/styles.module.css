@@ -1,0 +1,36 @@
+.turntable-game {
+    position: relative;
+    width: "755px";
+    height: "755px";
+    z-index: 2;
+}
+
+.gift-turntable>svg {
+    position: absolute;
+    top: 42.3%;
+    left: 49.9%;
+    transform: translate(-50%, -50%);
+    width: 389px;
+    height: 336px;
+    z-index: 5;
+}
+
+.arrow-turntable>svg {
+    position: absolute;
+    top: 17px;
+    left: 49%;
+    transform: translateX(-50%);
+    width: 61px;
+    height: 61px;
+    z-index: 5;
+}
+
+.turntable-place svg {
+    width: 779.2px;
+    height: 732.315px;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-48%);
+    z-index: 0;
+}

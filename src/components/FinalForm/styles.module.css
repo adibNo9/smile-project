@@ -136,6 +136,7 @@
 
 .form-wrapper form button:disabled {
     background: rgba(255, 194, 0, 0.38);
+    cursor: not-allowed;
 }
 .survey-wrapper {
     display: flex;
