@@ -25,7 +25,7 @@ const StartContainer = () => {
         </button>
         <Steps />
       </div>
-       {isGameStart && <CounterModal />}
+      {isGameStart && <CounterModal />}
     </div>
   );
 };

@@ -5,9 +5,9 @@
 }
 
 
-.start-container .content-wrapper {
+ .content-wrapper {
     position: absolute;
-    top: 15rem;
+    top: 20rem;
     margin: auto;
     width: 100%;
 }

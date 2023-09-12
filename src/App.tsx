@@ -8,7 +8,6 @@ import {
 
 import Layout from "./components/Layout/Layout";
 import Game from "./pages/game";
-import NoMatch from "./pages/no-match";
 import Start from "./pages/start";
 
 const router = createBrowserRouter(
@@ -18,8 +17,7 @@ const router = createBrowserRouter(
       <Route path="start" element={<Start />} />
       <Route path="game" element={<Game />} />
 
-
-      <Route path="*" element={<NoMatch />} />
+      <Route path="*" element={<Navigate to="/start" replace />} />
     </Route>,
   ),
 );

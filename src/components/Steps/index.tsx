@@ -1,3 +1,4 @@
+import faceGif from "../../assets/gifs/face-gif.gif";
 import { ArrowSvg } from "../../assets/icons/arrow-svg";
 import GameSvg from "../../assets/icons/game-svg";
 import StepCard from "../StepCard";
@@ -7,7 +8,10 @@ const Steps = () => {
   return (
     <div className={styles["steps-container"]}>
       <StepCard>
-        <GameSvg />
+        <div className={styles["face-wrapper"]}>
+          <img src={faceGif} alt="face-analyser" />
+          <GameSvg />
+        </div>
       </StepCard>
       <ArrowSvg />
       <StepCard>
