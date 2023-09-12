@@ -1,8 +1,4 @@
-import "video-react/dist/video-react.css";
-
-import { useEffect, useState } from "react";
-
-import { RecordRTCPromisesHandler } from "recordrtc";
+import { useState } from "react";
 
 import { ScoreSvg } from "../../assets/icons/score-svg";
 import FinalFormModal from "../../components/FinalFormModal";
@@ -13,49 +9,11 @@ import styles from "./styles.module.css";
 
 const GameContainer = () => {
   const [isShowForm, setIsShowForm] = useState(false);
-  const [recorder, setRecorder] = useState<any>();
-  const [videoBlob, setVideoUrlBlob] = useState<Blob | null>();
-
-  console.log(videoBlob);
-
-  const startRecording = async () => {
-    const mediaDevices = navigator.mediaDevices;
-    const stream: MediaStream = await mediaDevices.getUserMedia({
-      video: true,
-      audio: true,
-    });
-
-    const recorder = new RecordRTCPromisesHandler(stream, {
-      type: "video",
-    });
-
-    await recorder.startRecording();
-    setRecorder(recorder);
-    setVideoUrlBlob(null);
-  };
-
-  useEffect(() => {
-    startRecording();
-  }, []);
-
-  const stopRecording = async () => {
-    if (recorder) {
-      await recorder.stopRecording();
-      const blob: Blob = await recorder.getBlob();
-
-      setVideoUrlBlob(blob);
-
-      setRecorder(null);
-    }
-  };
 
   const showFormHandler = () => {
     // setIsShowForm(true);
     setIsShowForm(false);
-    stopRecording();
   };
-
-  console.log(videoBlob);
 
   return (
     <div className={styles["game-container"]}>
@@ -67,7 +25,7 @@ const GameContainer = () => {
           <GameTurntable />
         </div>
         <div className={styles["game-media-recorder"]}>
-          <GameMediaRecorder videoBlob={videoBlob} />
+          <GameMediaRecorder />
         </div>
       </div>
       <div className={styles["game-couter"]}>
