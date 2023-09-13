@@ -1,5 +1,16 @@
 .step-card {
     position: relative;
-    width: 554.361px;
-    height: 401.745px;
+    width: 28vw;
+        height: 21vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .step-card .border {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
 }

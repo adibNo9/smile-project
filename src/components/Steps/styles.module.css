@@ -1,20 +1,50 @@
 .steps-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 1vw;
     width: auto;
-    margin: 5rem 0 auto;
+    margin-bottom: 5vh;
+        margin-top: 3vh;
     }
-    
-    .face-wrapper>svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    
-    .face-wrapper img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+.steps-container .arrow {
+    width: 2.5rem;
 }
+
+.face-wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    }
+    
+    .gift-place {
+        width: 70%;
+        height: 70%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-45%);
+        bottom: 12%;
+    }
+    
+    .single-gift {
+        margin-top: 80px;
+        animation: bounce 2s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    @keyframes bounce {
+        0% {
+            transform: scale(0) translateY(100px);
+    
+        }
+    
+        100% {
+            transform: scale(1) translateY(-100px);
+        }
+    
+        /* 100% {
+                                transform: scale(0) translateY(100px);
+                            } */
+  }

@@ -1,6 +1,7 @@
-export const ArrowSvg = () => {
+export const ArrowSvg = ({ className }: { className: string }) => {
   return (
     <svg
+      className={className}
       width="45"
       height="58"
       viewBox="0 0 45 58"

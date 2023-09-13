@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import cls from "classnames";
+
 import { ArrowTurntable } from "../../../assets/icons/arrow-turntable";
 import { GamePlaceSvg } from "../../../assets/icons/game-place-svg";
 import { GiftTurntable } from "../../../assets/icons/gift-turntable";
@@ -7,7 +9,7 @@ import MainGameTurntable from "../../../assets/images/turntable-game.png";
 import injectStyle from "./injectStyle";
 import styles from "./styles.module.css";
 
-const GameTurntable = () => {
+const GameTurntable = ({ isStartPage = false }: { isStartPage?: boolean }) => {
   const [rotation, setRotation] = useState(0);
   const value = Math.ceil(Math.random() * 3600);
   const keyframesStyle = `
@@ -26,12 +28,20 @@ const GameTurntable = () => {
   injectStyle(keyframesStyle);
 
   useEffect(() => {
-    setRotation(1840);
-  }, [value]);
+    if (isStartPage) {
+      setRotation(360);
+    } else {
+      setRotation(1840);
+    }
+  }, [value, isStartPage]);
+
+  const startPageWheel = cls({
+    "start-page-wheel": isStartPage,
+  });
 
   return (
     <>
-      <div className={styles["turntable-game"]}>
+      <div className={cls(styles["turntable-game"], styles[startPageWheel])}>
         <div className={styles["arrow-turntable"]}>
           <ArrowTurntable />
         </div>
@@ -41,12 +51,9 @@ const GameTurntable = () => {
         <img
           style={{
             transform: `rotate(${rotation}deg)`,
-            marginTop: "-100px",
-            width: "755px",
-            height: "755px",
             objectFit: "cover",
             transition: "transform 3s ease-in-out",
-            WebkitAnimation: "spin 3s linear 1",
+            WebkitAnimation: `spin 3s linear ${isStartPage ? "infinite" : 1}`,
           }}
           src={MainGameTurntable}
           alt="turntable"
@@ -55,9 +62,11 @@ const GameTurntable = () => {
         />
       </div>
 
-      <div className={styles["turntable-place"]}>
-        <GamePlaceSvg />
-      </div>
+      {!isStartPage && (
+        <div className={styles["turntable-place"]}>
+          <GamePlaceSvg />
+        </div>
+      )}
     </>
   );
 };

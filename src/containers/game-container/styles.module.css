@@ -1,6 +1,6 @@
 .game-container {
-    background: radial-gradient(328% 114% at 100% 80.83%, #FFA000 0%, #141517 17%, #141517 88%, #00CAD4 95%);
-    background-image: url(../../assets/images/start-background.png);
+background-image: url(../../assets/images/background.png);
+    background-size: cover;
     height: 100vh;
     width: 100%;
     position: relative;
@@ -10,8 +10,8 @@
 .content-wrapper {
     display: flex;
     justify-content: center;
-    padding-top: 40vh;
-    height: 50vh;
+    padding-top: 28vh;
+        height: 72vh;
     gap: 40px;
 }
 

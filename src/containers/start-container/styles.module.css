@@ -1,17 +1,30 @@
 .start-container {
     position: relative;
     height: 100vh;
-    background-image: url(../../assets/images/start-background.png);
+    background-image: url(../../assets/images/background.png);
+        background-size: cover;
 }
 
 
  .content-wrapper {
     position: absolute;
-    top: 20rem;
+    top: 28vh;
     margin: auto;
     width: 100%;
+    display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 72vh;
 }
 
+.content-wrapper p {
+    width: 70%;
+    margin: auto;
+    color: #FFF;
+    font-size: 1.75rem;
+    line-height: 2rem;
+
+}
 .start-container .content-wrapper .description {
     color: white;
     text-align: center;

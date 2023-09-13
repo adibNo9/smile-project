@@ -1,6 +1,7 @@
-const GameSvg = () => {
+const GameSvg = ({ className }: { className: string }) => {
   return (
     <svg
+        className={className}
       width="555"
       height="402"
       viewBox="0 0 555 402"

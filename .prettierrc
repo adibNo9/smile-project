@@ -2,14 +2,11 @@
   "singleQuote": false,
   "semi": true,
   "tabWidth": 2,
-  "printWidth": 80,
   "trailingComma": "all",
   "auto_format_on_save": true,
-  "format_on_save_extensions": ["css"],
+
   "css": {
-    "indentation": 2,
-    "selectorSeparator": " ",
-    "unitPrecision": 4
+    "indentation": 2
   },
   "prettier_options": {
     "singleQuote": true,

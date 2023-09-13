@@ -1,8 +1,9 @@
 import React from "react";
 
-export const GiftPlace = () => {
+export const GiftPlace = ({ className }: { className?: string }) => {
   return (
     <svg
+        className={className}
       width="1094"
       height="1014"
       viewBox="0 0 1094 1014"
