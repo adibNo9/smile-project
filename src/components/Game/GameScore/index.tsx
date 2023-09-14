@@ -1,8 +1,8 @@
 import cls from "classnames";
 
-import { ScoreHand } from "../../../assets/icons/score-hand";
 import { ScoreSvg } from "../../../assets/icons/score-svg";
 import { ScoreWrapperIcon } from "../../../assets/icons/score-wrapper-icon";
+import ScoreHand from "../../../assets/images/score-hand.png";
 import styles from "./styles.module.css";
 
 const GameScore = ({
@@ -57,7 +57,7 @@ const GameScore = ({
         <p>Score</p>
       </div>
 
-      <ScoreHand className={styles["score-hand"]} />
+      <img src={ScoreHand} alt="score-hand" />
       <ScoreWrapperIcon className={styles["wrapper-svg"]} />
       <ScoreSvg className={styles["score-svg"]} />
     </div>
