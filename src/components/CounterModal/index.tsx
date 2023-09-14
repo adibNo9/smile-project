@@ -4,7 +4,7 @@ import { CounterBorderSvg } from "../../assets/icons/counter-border-svg";
 import styles from "./styles.module.css";
 
 const CounterModal = ({ onHideModal }: { onHideModal: () => void }) => {
-  const [counter, setCounter] = useState(3);
+  const [counter, setCounter] = useState(5);
 
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);

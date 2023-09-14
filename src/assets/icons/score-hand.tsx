@@ -24,7 +24,7 @@ export const ScoreHand = ({ className }: { className?: string }) => {
         <path
           d="M29.3826 26.5474C30.9427 32.3699 27.4874 38.3548 21.6648 39.9149C15.8423 41.4751 9.85744 38.0197 8.29729 32.1972C6.73715 26.3746 10.1925 20.3898 16.015 18.8296C21.8376 17.2695 27.8224 20.7249 29.3826 26.5474Z"
           stroke="white"
-          stroke-width="2.40442"
+          strokeWidth="2.40442"
         />
       </g>
       <defs>
@@ -35,9 +35,9 @@ export const ScoreHand = ({ className }: { className?: string }) => {
           width="37.0629"
           height="37.0631"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

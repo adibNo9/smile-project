@@ -122,6 +122,9 @@ const GameRecorder = ({ className }: { className: string }) => {
       ref={wrapperRef}
     >
       <Webcam
+        screenshotFormat="image/webp"
+        mirrored={true}
+        imageSmoothing={true}
         audio={false}
         ref={webcamRef}
         style={{

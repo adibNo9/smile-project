@@ -38,7 +38,7 @@ const GameWheel = ({
   injectStyle(keyframesStyle);
 
   useEffect(() => {
-    console.log(isGameStart, isCounterEnded);
+    // console.log(isGameStart, isCounterEnded);
     if (isStartPage) {
       setRotation(360);
     } else if (isCounterEnded && isGameStart) {

@@ -62,3 +62,6 @@
 .start-button:disabled {
     background: rgba(255, 194, 0, 0.38);
 }
+.start-webcam {
+    visibility: hidden;
+}

@@ -15,7 +15,7 @@ export const StartBackgroundSvg = ({ className }: { className: string }) => {
           rx="445.359"
           ry="263"
           fill="#00E0FF"
-          fill-opacity="0.15"
+          fillOpacity="0.15"
         />
         <ellipse
           cx="931.499"
@@ -23,7 +23,7 @@ export const StartBackgroundSvg = ({ className }: { className: string }) => {
           rx="445.359"
           ry="263"
           fill="url(#paint0_linear_81_595)"
-          fill-opacity="0.4"
+          fillOpacity="0.4"
         />
         <ellipse
           cx="1215.97"
@@ -31,7 +31,7 @@ export const StartBackgroundSvg = ({ className }: { className: string }) => {
           rx="445.359"
           ry="263"
           fill="url(#paint1_radial_81_595)"
-          fill-opacity="0.6"
+          fillOpacity="0.6"
         />
       </g>
       <defs>
@@ -42,9 +42,9 @@ export const StartBackgroundSvg = ({ className }: { className: string }) => {
           width="2202.67"
           height="1589"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -64,8 +64,8 @@ export const StartBackgroundSvg = ({ className }: { className: string }) => {
           y2="789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00BAFF" />
-          <stop offset="1" stop-color="#00BAFF" stop-opacity="0" />
+          <stop stopColor="#00BAFF" />
+          <stop offset="1" stopColor="#00BAFF" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint1_radial_81_595"
@@ -75,8 +75,8 @@ export const StartBackgroundSvg = ({ className }: { className: string }) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1215.97 263) rotate(137.881) scale(266.898 451.96)"
         >
-          <stop stop-color="#F8A61F" />
-          <stop offset="1" stop-color="#F8A61F" stop-opacity="0" />
+          <stop stopColor="#F8A61F" />
+          <stop offset="1" stopColor="#F8A61F" stopOpacity="0" />
         </radialGradient>
       </defs>
     </svg>

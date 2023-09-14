@@ -23,9 +23,9 @@ export const ScoreWrapperIcon = ({ className }: { className?: string }) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(378.388 284.156) rotate(-180) scale(332.982)"
         >
-          <stop stop-color="#24C6D2" stop-opacity="0.62" />
-          <stop offset="0.470442" stop-color="#175277" stop-opacity="0" />
-          <stop offset="1" stop-color="#132F59" stop-opacity="0" />
+          <stop stopColor="#24C6D2" stopOpacity="0.62" />
+          <stop offset="0.470442" stopColor="#175277" stopOpacity="0" />
+          <stop offset="1" stopColor="#132F59" stopOpacity="0" />
         </radialGradient>
       </defs>
     </svg>
