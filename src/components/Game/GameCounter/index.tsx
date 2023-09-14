@@ -7,7 +7,7 @@ interface CountdownTimerProps {
   strokeColor: string;
   strokeWidth: number;
   onShowForm: () => void;
-  isCounterStart: boolean;
+  isCounterStart?: boolean;
   onStopCounter: () => void;
 }
 

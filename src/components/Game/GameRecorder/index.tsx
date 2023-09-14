@@ -17,62 +17,59 @@ const GameRecorder = ({ className }: { className: string }) => {
   const camera = useRef<cam.Camera | null>(null);
   const connect = drawConnectors;
 
-  const onResults = useCallback(
-    (results: mpFaceMeshResults) => {
-      const videoWidth = webcamRef?.current?.video?.videoWidth; // Use optional chaining here
-      const videoHeight = webcamRef?.current?.video?.videoHeight; // Use optional chaining here
+  const onResults = useCallback((results: mpFaceMeshResults) => {
+    const videoWidth = webcamRef?.current?.video?.videoWidth; // Use optional chaining here
+    const videoHeight = webcamRef?.current?.video?.videoHeight; // Use optional chaining here
 
-      if (!!canvasRef.current) {
-        // Set canvas width
-        canvasRef.current.width = videoWidth || 0; // Provide a default value
-        canvasRef.current.height = videoHeight || 0; // Provide a default value
+    if (!!canvasRef.current) {
+      // Set canvas width
+      canvasRef.current.width = videoWidth || 0; // Provide a default value
+      canvasRef.current.height = videoHeight || 0; // Provide a default value
 
-        const canvasElement = canvasRef.current;
-        const canvasCtx = canvasElement?.getContext("2d");
-        canvasCtx?.save();
-        canvasCtx?.clearRect(
-          0,
-          0,
-          canvasElement?.width || 0,
-          canvasElement?.height || 0,
-        ); // Provide default values
-        canvasCtx?.drawImage(
-          results.image,
-          0,
-          0,
-          canvasElement?.width || 0,
-          canvasElement?.height || 0,
-        );
-        if (results.multiFaceLandmarks && canvasCtx) {
-          for (const landmarks of results.multiFaceLandmarks) {
-            const index = [
-              61, 185, 40, 39, 37, 0, 267, 269, 270, 409, 291, 146, 91, 181, 84,
-              17, 314, 405, 321, 375, 291, 78, 191, 80, 81, 82, 13, 312, 311,
-              310, 415, 308, 78, 95, 88, 178, 87, 14, 317, 402, 318, 324, 308,
-            ];
-            const points = [];
-            for (let i = 0; i < 43; i++) {
-              points.push({
-                x: landmarks[index[i]].x * canvasElement.width,
-                y: landmarks[index[i]].y * canvasElement.height,
-              });
-            }
-            const drawPoint = (point: any) => {
-              canvasCtx.beginPath();
-              canvasCtx.arc(point.x, point.y, 1, 0, 2 * Math.PI);
-              canvasCtx.fillStyle = "rgb(0,255,0)";
-              canvasCtx.fill();
-            };
-            points.forEach((point) => {
-              drawPoint(point);
+      const canvasElement = canvasRef.current;
+      const canvasCtx = canvasElement?.getContext("2d");
+      canvasCtx?.save();
+      canvasCtx?.clearRect(
+        0,
+        0,
+        canvasElement?.width || 0,
+        canvasElement?.height || 0,
+      ); // Provide default values
+      canvasCtx?.drawImage(
+        results.image,
+        0,
+        0,
+        canvasElement?.width || 0,
+        canvasElement?.height || 0,
+      );
+      if (results.multiFaceLandmarks && canvasCtx) {
+        for (const landmarks of results.multiFaceLandmarks) {
+          const index = [
+            61, 185, 40, 39, 37, 0, 267, 269, 270, 409, 291, 146, 91, 181, 84,
+            17, 314, 405, 321, 375, 291, 78, 191, 80, 81, 82, 13, 312, 311, 310,
+            415, 308, 78, 95, 88, 178, 87, 14, 317, 402, 318, 324, 308,
+          ];
+          const points = [];
+          for (let i = 0; i < 43; i++) {
+            points.push({
+              x: landmarks[index[i]].x * canvasElement.width,
+              y: landmarks[index[i]].y * canvasElement.height,
             });
           }
+          const drawPoint = (point: any) => {
+            canvasCtx.beginPath();
+            canvasCtx.arc(point.x, point.y, 1, 0, 2 * Math.PI);
+            canvasCtx.fillStyle = "rgb(0,255,0)";
+            canvasCtx.fill();
+          };
+          points.forEach((point) => {
+            drawPoint(point);
+          });
         }
-        canvasCtx?.restore();
       }
-    },
-    [connect],
-  );
+      canvasCtx?.restore();
+    }
+  }, []);
 
   useEffect(() => {
     const faceMesh = new FaceMesh({
@@ -122,7 +119,7 @@ const GameRecorder = ({ className }: { className: string }) => {
       ref={wrapperRef}
     >
       <Webcam
-        screenshotFormat="image/webp"
+        screenshotFormat="image/png"
         mirrored={true}
         imageSmoothing={true}
         audio={false}

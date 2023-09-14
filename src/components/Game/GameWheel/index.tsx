@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import cls from "classnames";
 
@@ -9,19 +9,21 @@ import MainGameWheel from "../../../assets/images/turntable-game.png";
 import injectStyle from "./injectStyle";
 import styles from "./styles.module.css";
 
-const GameWheel = ({
-  isStartPage = false,
-  className,
-  isCounterEnded,
-  isGameStart,
-}: {
+interface IGameWheel {
   isStartPage?: boolean;
   className?: string;
-  isCounterEnded?: boolean;
-  isGameStart?: boolean;
+  startCounter?: boolean;
+  gameCounter?: boolean;
+}
+
+const GameWheel: FC<IGameWheel> = ({
+  isStartPage = false,
+  className,
+  gameCounter,
+  startCounter,
 }) => {
   const [rotation, setRotation] = useState(0);
-  const value = Math.ceil(Math.random() * 360);
+
   const keyframesStyle = `
         @-webkit-keyframes spin {
           0% {
@@ -38,13 +40,14 @@ const GameWheel = ({
   injectStyle(keyframesStyle);
 
   useEffect(() => {
-    // console.log(isGameStart, isCounterEnded);
+    console.log(startCounter, gameCounter);
     if (isStartPage) {
       setRotation(360);
-    } else if (isCounterEnded && isGameStart) {
+    } else if (startCounter === false && gameCounter === false) {
+      const value = Math.ceil(Math.random() * 360);
       setRotation(1800 + value);
     }
-  }, [value, isStartPage, isCounterEnded, isGameStart]);
+  }, [startCounter, gameCounter, isStartPage]);
 
   const startPageWheel = cls({
     "start-page-wheel": isStartPage,

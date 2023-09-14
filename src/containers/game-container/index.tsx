@@ -11,24 +11,24 @@ import GameWheel from "../../components/Game/GameWheel";
 import styles from "./styles.module.css";
 
 const GameContainer = () => {
-  const [isGameStart, setGameStart] = useState(true);
-  const [isCounterStart, setIsCounterStart] = useState(false);
+  const [startCounter, setStartCounter] = useState(true);
+  const [gameCounter, setGameCounter] = useState<boolean | undefined>();
   const [isShowForm, setIsShowForm] = useState(false);
 
-  const startCounterHandler = () => {
-    setIsCounterStart(true);
+  const startGameCounterHandler = () => {
+    setGameCounter(true);
   };
 
   useEffect(() => {
-    !isGameStart && startCounterHandler();
-  }, [isGameStart]);
+    !startCounter && startGameCounterHandler();
+  }, [startCounter]);
 
-  const stopCounterHandler = () => {
-    setIsCounterStart(false);
+  const stopGameCounterHandler = () => {
+    setGameCounter(false);
   };
 
-  const hideGameCounterHandler = () => {
-    setGameStart(false);
+  const hideStartCounterHandler = () => {
+    setStartCounter(false);
   };
 
   const showFormHandler = () => {
@@ -45,8 +45,8 @@ const GameContainer = () => {
         />
 
         <GameWheel
-          isGameStart={!isGameStart}
-          isCounterEnded={!isCounterStart}
+          startCounter={startCounter}
+          gameCounter={gameCounter}
           className={cls(styles["wheel-wrapper"], styles["item-wrapper"])}
         />
 
@@ -62,11 +62,11 @@ const GameContainer = () => {
           strokeColor="#F8A61F"
           strokeWidth={4}
           onShowForm={showFormHandler}
-          isCounterStart={isCounterStart}
-          onStopCounter={stopCounterHandler}
+          isCounterStart={gameCounter}
+          onStopCounter={stopGameCounterHandler}
         />
       </div>
-      {isGameStart && <CounterModal onHideModal={hideGameCounterHandler} />}
+      {startCounter && <CounterModal onHideModal={hideStartCounterHandler} />}
       {isShowForm && <FinalFormModal />}
     </div>
   );
