@@ -34,33 +34,29 @@ const GameScore = ({
 
   return (
     <div className={cls(className, styles["game-score-wrapper"])}>
-      <div className={styles.circle}>
-        <div
-          className={cls(styles["coefficient-wrapper"], styles[activeFifth])}
-        >
+      <div className={styles.circle} />
+      <div className={styles["coefficient-wrapper"]}>
+        <div className={cls(styles["coefficient"], styles[activeFifth])}>
           5x
         </div>
-        <div
-          className={cls(styles["coefficient-wrapper"], styles[activeFourth])}
-        >
+        <div className={cls(styles["coefficient"], styles[activeFourth])}>
           4x
         </div>
-        <div
-          className={cls(styles["coefficient-wrapper"], styles[activeThird])}
-        >
+        <div className={cls(styles["coefficient"], styles[activeThird])}>
           3x
         </div>
-        <div
-          className={cls(styles["coefficient-wrapper"], styles[activeSecond])}
-        >
+        <div className={cls(styles["coefficient"], styles[activeSecond])}>
           2x
         </div>
-        <div
-          className={cls(styles["coefficient-wrapper"], styles[activeFirst])}
-        >
+        <div className={cls(styles["coefficient"], styles[activeFirst])}>
           1x
         </div>
       </div>
+
+      <div className={styles["score"]}>
+        <p>Score</p>
+      </div>
+
       <ScoreHand className={styles["score-hand"]} />
       <ScoreWrapperIcon className={styles["wrapper-svg"]} />
       <ScoreSvg className={styles["score-svg"]} />

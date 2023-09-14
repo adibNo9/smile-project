@@ -32,7 +32,7 @@ const GameContainer = () => {
   };
 
   const showFormHandler = () => {
-    setIsShowForm(true);
+    // setIsShowForm(true);
     // setIsShowForm(false);
   };
 

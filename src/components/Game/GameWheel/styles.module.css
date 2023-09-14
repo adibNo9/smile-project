@@ -28,6 +28,9 @@
     height: auto !important;
 }
 
+.start-page-wheel>.gift-wheel>svg {
+    width: 30%;
+}
 .gift-wheel>svg {
     position: absolute;
     top: 50%;
@@ -48,6 +51,10 @@
     z-index: 5;
 }
 
+.start-page-wheel>.arrow-wheel>svg {
+    width: 8%;
+    top: 18%;
+}
 .wheel-place svg {
     width: 36vw;
     height: 100%;
