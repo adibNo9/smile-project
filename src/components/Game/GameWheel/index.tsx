@@ -39,15 +39,21 @@ const GameWheel: FC<IGameWheel> = ({
       `;
   injectStyle(keyframesStyle);
 
+  function randomIntFromInterval(min: number, max: number) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   useEffect(() => {
-    console.log(startCounter, gameCounter);
     if (isStartPage) {
       setRotation(360);
     } else if (startCounter === false && gameCounter === false) {
-      const value = Math.ceil(Math.random() * 360);
-      setRotation(1800 + value);
+      // const value = randomIntFromInterval(1, 359);
+      // console.log(value);
+      console.log(isStartPage);
+      setRotation(1800);
     }
-  }, [startCounter, gameCounter, isStartPage]);
+  }, [gameCounter]);
 
   const startPageWheel = cls({
     "start-page-wheel": isStartPage,

@@ -1,47 +1,39 @@
-import { useCallback, useEffect, useRef } from "react"; // Import React
+import { FC, useCallback, useEffect, useRef } from "react"; // Import React
 
 import cls from "classnames";
 import Webcam from "react-webcam";
 
 import * as cam from "@mediapipe/camera_utils";
-import { drawConnectors } from "@mediapipe/drawing_utils"; // Import the drawConnectors function
 import { FaceMesh, Results as mpFaceMeshResults } from "@mediapipe/face_mesh"; // Import Results from the correct location
 
 import styles from "./styles.module.css";
 
-const GameRecorder = ({ className }: { className: string }) => {
-  // Specify React.FC type
+interface IGameRecorder {
+  className: string;
+  onStartGame: () => void;
+  gameCounter?: boolean;
+}
+
+const GameRecorder: FC<IGameRecorder> = ({
+  className,
+  onStartGame,
+  gameCounter,
+}) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const webcamRef = useRef<Webcam | null>(null); // Specify the correct type for webcamRef
+  const webcamRef = useRef<Webcam | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const camera = useRef<cam.Camera | null>(null);
-  const connect = drawConnectors;
 
   const onResults = useCallback((results: mpFaceMeshResults) => {
-    const videoWidth = webcamRef?.current?.video?.videoWidth; // Use optional chaining here
-    const videoHeight = webcamRef?.current?.video?.videoHeight; // Use optional chaining here
-
+    const videoWidth = webcamRef?.current?.video?.videoWidth;
+    const videoHeight = webcamRef?.current?.video?.videoHeight;
     if (!!canvasRef.current) {
-      // Set canvas width
-      canvasRef.current.width = videoWidth || 0; // Provide a default value
-      canvasRef.current.height = videoHeight || 0; // Provide a default value
+      canvasRef.current.width = videoWidth || 0;
+      canvasRef.current.height = videoHeight || 0;
 
       const canvasElement = canvasRef.current;
       const canvasCtx = canvasElement?.getContext("2d");
-      canvasCtx?.save();
-      canvasCtx?.clearRect(
-        0,
-        0,
-        canvasElement?.width || 0,
-        canvasElement?.height || 0,
-      ); // Provide default values
-      canvasCtx?.drawImage(
-        results.image,
-        0,
-        0,
-        canvasElement?.width || 0,
-        canvasElement?.height || 0,
-      );
+
       if (results.multiFaceLandmarks && canvasCtx) {
         for (const landmarks of results.multiFaceLandmarks) {
           const index = [

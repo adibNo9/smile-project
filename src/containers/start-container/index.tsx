@@ -65,7 +65,7 @@ const StartContainer = () => {
       </div>
       <div className={styles["start-webcam"]}>
         <Webcam
-          screenshotFormat="image/jpeg"
+          screenshotFormat="image/png"
           mirrored={true}
           imageSmoothing={true}
           audio={false}

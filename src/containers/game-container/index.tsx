@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import cls from "classnames";
 
@@ -15,13 +15,9 @@ const GameContainer = () => {
   const [gameCounter, setGameCounter] = useState<boolean | undefined>();
   const [isShowForm, setIsShowForm] = useState(false);
 
-  const startGameCounterHandler = () => {
+  const startGameHandler = () => {
     setGameCounter(true);
   };
-
-  useEffect(() => {
-    !startCounter && startGameCounterHandler();
-  }, [startCounter]);
 
   const stopGameCounterHandler = () => {
     setGameCounter(false);
@@ -51,6 +47,8 @@ const GameContainer = () => {
         />
 
         <GameRecorder
+          gameCounter={gameCounter}
+          onStartGame={startGameHandler}
           className={cls(styles["game-recorder"], styles["item-wrapper"])}
         />
       </div>
