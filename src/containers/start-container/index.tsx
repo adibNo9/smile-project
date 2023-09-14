@@ -1,12 +1,10 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import CounterModal from "../../components/CounterModal";
 import Steps from "../../components/Steps";
 import styles from "./styles.module.css";
 
 const StartContainer = () => {
-  const [isGameStart, setGameStart] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <div className={styles["start-container"]}>
       <div className={styles["content-wrapper"]}>
@@ -18,14 +16,13 @@ const StartContainer = () => {
         <button
           className={styles["start-button"]}
           onClick={() => {
-            setGameStart(true);
+            navigate("/game");
           }}
         >
           Start
         </button>
         <Steps />
       </div>
-      {isGameStart && <CounterModal />}
     </div>
   );
 };

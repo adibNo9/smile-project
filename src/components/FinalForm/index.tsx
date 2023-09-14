@@ -5,6 +5,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import { AngryFaceIcon } from "../../assets/icons/angry-face-icon";
+import { FormHeaderBackground } from "../../assets/icons/form-header-background";
 import { HappyFaceIcon } from "../../assets/icons/happy-face-icon";
 import { PokerFaceIcon } from "../../assets/icons/poker-face-icon";
 import styles from "./styles.module.css";
@@ -54,6 +55,7 @@ const FinalForm = () => {
   return (
     <div className={styles["form-container"]}>
       <div className={styles["form-header"]}>
+        <FormHeaderBackground className={styles["form-header-svg"]} />
         <h1>Are you happy with our service ?</h1>
       </div>
       <div className={styles["form-wrapper"]}>

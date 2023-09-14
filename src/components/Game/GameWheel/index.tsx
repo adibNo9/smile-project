@@ -5,13 +5,23 @@ import cls from "classnames";
 import { ArrowTurntable } from "../../../assets/icons/arrow-turntable";
 import { GamePlaceSvg } from "../../../assets/icons/game-place-svg";
 import { GiftTurntable } from "../../../assets/icons/gift-turntable";
-import MainGameTurntable from "../../../assets/images/turntable-game.png";
+import MainGameWheel from "../../../assets/images/turntable-game.png";
 import injectStyle from "./injectStyle";
 import styles from "./styles.module.css";
 
-const GameTurntable = ({ isStartPage = false }: { isStartPage?: boolean }) => {
+const GameWheel = ({
+  isStartPage = false,
+  className,
+  isCounterEnded,
+  isGameStart,
+}: {
+  isStartPage?: boolean;
+  className?: string;
+  isCounterEnded?: boolean;
+  isGameStart?: boolean;
+}) => {
   const [rotation, setRotation] = useState(0);
-  const value = Math.ceil(Math.random() * 3600);
+  const value = Math.ceil(Math.random() * 360);
   const keyframesStyle = `
         @-webkit-keyframes spin {
           0% {
@@ -28,24 +38,25 @@ const GameTurntable = ({ isStartPage = false }: { isStartPage?: boolean }) => {
   injectStyle(keyframesStyle);
 
   useEffect(() => {
+    console.log(isGameStart, isCounterEnded);
     if (isStartPage) {
       setRotation(360);
-    } else {
-      setRotation(1840);
+    } else if (isCounterEnded && isGameStart) {
+      setRotation(1800 + value);
     }
-  }, [value, isStartPage]);
+  }, [value, isStartPage, isCounterEnded, isGameStart]);
 
   const startPageWheel = cls({
     "start-page-wheel": isStartPage,
   });
 
   return (
-    <>
-      <div className={cls(styles["turntable-game"], styles[startPageWheel])}>
-        <div className={styles["arrow-turntable"]}>
+    <div className={className}>
+      <div className={cls(styles["wheel-game"], styles[startPageWheel])}>
+        <div className={styles["arrow-wheel"]}>
           <ArrowTurntable />
         </div>
-        <div className={styles["gift-turntable"]}>
+        <div className={styles["gift-wheel"]}>
           <GiftTurntable />
         </div>
         <img
@@ -55,20 +66,20 @@ const GameTurntable = ({ isStartPage = false }: { isStartPage?: boolean }) => {
             transition: "transform 3s ease-in-out",
             WebkitAnimation: `spin 3s linear ${isStartPage ? "infinite" : 1}`,
           }}
-          src={MainGameTurntable}
-          alt="turntable"
+          src={MainGameWheel}
+          alt="wheel"
           width={555}
           height={555}
         />
       </div>
 
       {!isStartPage && (
-        <div className={styles["turntable-place"]}>
+        <div className={styles["wheel-place"]}>
           <GamePlaceSvg />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
-export default GameTurntable;
+export default GameWheel;

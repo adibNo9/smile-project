@@ -1,16 +1,17 @@
 import { useCallback, useEffect, useRef } from "react"; // Import React
 
+import cls from "classnames";
 import Webcam from "react-webcam";
 
 import * as cam from "@mediapipe/camera_utils";
 import { drawConnectors } from "@mediapipe/drawing_utils"; // Import the drawConnectors function
-import * as Facemesh from "@mediapipe/face_mesh";
 import { FaceMesh, Results as mpFaceMeshResults } from "@mediapipe/face_mesh"; // Import Results from the correct location
 
 import styles from "./styles.module.css";
 
-const GameMediaRecorder = () => {
+const GameRecorder = ({ className }: { className: string }) => {
   // Specify React.FC type
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null); // Specify the correct type for webcamRef
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const camera = useRef<cam.Camera | null>(null);
@@ -44,15 +45,26 @@ const GameMediaRecorder = () => {
         );
         if (results.multiFaceLandmarks && canvasCtx) {
           for (const landmarks of results.multiFaceLandmarks) {
-            connect(canvasCtx, landmarks, Facemesh.FACEMESH_TESSELATION, {
-              color: "#C0C0C070",
-              lineWidth: 1,
-            });
-            connect(canvasCtx, landmarks, Facemesh.FACEMESH_FACE_OVAL, {
-              color: "#E0E0E0",
-            });
-            connect(canvasCtx, landmarks, Facemesh.FACEMESH_LIPS, {
-              color: "#E0E0E0",
+            const index = [
+              61, 185, 40, 39, 37, 0, 267, 269, 270, 409, 291, 146, 91, 181, 84,
+              17, 314, 405, 321, 375, 291, 78, 191, 80, 81, 82, 13, 312, 311,
+              310, 415, 308, 78, 95, 88, 178, 87, 14, 317, 402, 318, 324, 308,
+            ];
+            const points = [];
+            for (let i = 0; i < 43; i++) {
+              points.push({
+                x: landmarks[index[i]].x * canvasElement.width,
+                y: landmarks[index[i]].y * canvasElement.height,
+              });
+            }
+            const drawPoint = (point: any) => {
+              canvasCtx.beginPath();
+              canvasCtx.arc(point.x, point.y, 1, 0, 2 * Math.PI);
+              canvasCtx.fillStyle = "rgb(0,255,0)";
+              canvasCtx.fill();
+            };
+            points.forEach((point) => {
+              drawPoint(point);
             });
           }
         }
@@ -86,8 +98,8 @@ const GameMediaRecorder = () => {
         onFrame: async () => {
           await faceMesh.send({ image: vid });
         },
-        width: 640,
-        height: 480,
+        width: wrapperRef.current?.clientWidth,
+        height: wrapperRef.current?.clientHeight,
       });
       camera.current.start();
     }
@@ -101,7 +113,14 @@ const GameMediaRecorder = () => {
   }, [onResults]);
 
   return (
-    <div className={styles["webcam-wrapper"]}>
+    <div
+      className={cls(
+        styles["webcam-wrapper"],
+        styles["game-wrapper"],
+        className,
+      )}
+      ref={wrapperRef}
+    >
       <Webcam
         audio={false}
         ref={webcamRef}
@@ -111,8 +130,8 @@ const GameMediaRecorder = () => {
           right: 0,
           textAlign: "center",
           zIndex: 9,
-          width: 640,
-          height: 480,
+          width: wrapperRef.current?.clientWidth,
+          height: wrapperRef.current?.clientHeight,
         }}
       />
       <canvas
@@ -126,12 +145,12 @@ const GameMediaRecorder = () => {
           right: 0,
           textAlign: "center",
           zIndex: 9,
-          width: 640,
-          height: 480,
+          width: wrapperRef.current?.clientWidth,
+          height: wrapperRef.current?.clientHeight,
         }}
       ></canvas>
     </div>
   );
 };
 
-export default GameMediaRecorder;
+export default GameRecorder;

@@ -7,6 +7,8 @@ interface CountdownTimerProps {
   strokeColor: string;
   strokeWidth: number;
   onShowForm: () => void;
+  isCounterStart: boolean;
+  onStopCounter: () => void;
 }
 
 const GameCounter: React.FC<CountdownTimerProps> = ({
@@ -16,18 +18,18 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
   strokeColor,
   strokeWidth,
   onShowForm,
+  isCounterStart,
+  onStopCounter,
 }) => {
   const milliseconds = seconds * 1000;
   const radius = size / 2;
   const circumference = size * Math.PI;
   const [countdown, setCountdown] = useState(milliseconds);
-  const [isPlaying, setIsPlaying] = useState(true);
-
   const strokeDashoffset = () =>
     circumference - (countdown / milliseconds) * circumference;
 
   useEffect(() => {
-    if (isPlaying) {
+    if (isCounterStart) {
       const interval = setInterval(() => {
         setCountdown((prevCountdown) =>
           prevCountdown <= 0 ? milliseconds : prevCountdown - 10,
@@ -35,7 +37,7 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
 
         if (countdown <= 0) {
           clearInterval(interval);
-          setIsPlaying(false);
+          onStopCounter();
           setCountdown(0);
         }
       }, 10);
@@ -44,11 +46,11 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
         clearInterval(interval);
       };
     }
-  }, [isPlaying, countdown, milliseconds]);
+  }, [isCounterStart, countdown, milliseconds, onStopCounter]);
 
   useEffect(() => {
-    !isPlaying && onShowForm();
-  }, [isPlaying, onShowForm]);
+    !isCounterStart && onShowForm();
+  }, [isCounterStart, onShowForm]);
 
   const countdownSizeStyles = {
     height: size,
@@ -59,7 +61,7 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
     width: "100%",
     color: "#FFF",
     textShadow: "0px 0px 10.914302825927734px #7FF",
-    fontSize: " 3.35144rem",
+    fontSize: " 2.8rem",
     fontWeight: 800,
   };
 
@@ -96,8 +98,8 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
     <>
       <div
         style={{
-          pointerEvents: isPlaying ? "none" : "all",
-          opacity: isPlaying ? 0.4 : 1,
+          pointerEvents: isCounterStart ? "none" : "all",
+          opacity: isCounterStart ? 0.4 : 1,
         }}
       ></div>
       <div style={{ ...styles.countdownContainer, ...countdownSizeStyles }}>
@@ -116,7 +118,7 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
         <svg style={styles.svg}>
           <circle
             strokeDasharray={circumference}
-            strokeDashoffset={isPlaying ? strokeDashoffset() : 630}
+            strokeDashoffset={isCounterStart ? strokeDashoffset() : 470}
             r={radius}
             cx={radius}
             cy={radius}

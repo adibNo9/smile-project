@@ -1,5 +1,5 @@
 .game-container {
-background-image: url(../../assets/images/background.png);
+background-image: url(../../assets/images/game-background.png);
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -7,53 +7,36 @@ background-image: url(../../assets/images/background.png);
     overflow: hidden;
 }
 
-.content-wrapper {
+.item-wrapper {
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    max-width: 22rem;
+    max-height: 22rem;
     display: flex;
     justify-content: center;
-    padding-top: 28vh;
-        height: 72vh;
-    gap: 40px;
+    align-items: center;
 }
-
-.score-wrapper {
-    width: 566px;
-    height: 566px;
-    position: relative;
-    margin-top: -70px;
-}
-
-.score-wrapper>svg {
+.content-wrapper {
     position: absolute;
-    left: 40px;
+    top: 28vh;
+        margin: auto;
+        height: 72vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 4vw;
+        width: 100%;
+        margin-bottom: 5vh;
+        margin-top: 3vh;
+        margin: auto;
 }
 
-.game-wrapper {
-width: "755px";
-    height: "755px";
-    margin-top: -15vh;
-}
-
-
-.game-media-recorder {
+.game-recorder {
     background-image: url(../../assets/icons/face-background.svg);
     background-repeat: no-repeat;
-width: 545px !important;
-    height: 490px !important;
     border-radius: 1.5rem;
-    margin-top: -90px;
         overflow: hidden;
-    }
-    
-                                                                                                                                                                                                                                                                .game-media-recorder video {
-        width: 545px !important;
-        height: 490px !important;
-        object-fit: cover !important;
-    }
-    
-
-
-.game-media-recorder>img {
-    width: 22vw;
 }
 
 .game-couter {
@@ -63,4 +46,8 @@ width: 545px !important;
     transform: translateX(-50%);
 }
 
+.game-counter-wrapper {
+    width: 20vh;
+    height: 20vh;
+}
 
