@@ -14,6 +14,7 @@ interface IGameRecorder {
   gameCounter?: boolean;
   onIncreaseScore: (value: number) => void;
   onScreenshot: (value: string | null) => void;
+  onIncreaseBackendScore: (value: string) => void;
 }
 
 const GameRecorder: FC<IGameRecorder> = ({
@@ -22,6 +23,7 @@ const GameRecorder: FC<IGameRecorder> = ({
   gameCounter,
   onIncreaseScore,
   onScreenshot,
+  onIncreaseBackendScore,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
@@ -31,6 +33,23 @@ const GameRecorder: FC<IGameRecorder> = ({
   const onResults = useCallback((results: mpFaceMeshResults) => {
     const videoWidth = webcamRef?.current?.video?.videoWidth;
     const videoHeight = webcamRef?.current?.video?.videoHeight;
+
+    if (results) {
+      // try {
+      //   await axios
+      //     .post<Response>("/smile", { file: imageSrc })
+      //     .then((response) => {
+      //       if (response.data.status === "200") {
+      //         onIncreaseBackendScore(response.data.result_prob);
+      //       } else {
+      //         console.log(response.data.result);
+      //     })
+      //     .catch((error) => console.log(error));
+      //   console.log("Image sent to server.");
+      // } catch (error) {
+      //   console.error("Error sending image to server:", error);
+      // }
+    }
 
     results && onIncreaseScore(0.01);
     results &&

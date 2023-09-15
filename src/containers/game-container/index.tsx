@@ -17,6 +17,19 @@ const GameContainer = () => {
   const [score, setScore] = useState(0);
   const [screenshot, setScreenshot] = useState<string | null>("");
   const [coefficient, setCoefficient] = useState(0);
+  const [backendScore, setBackendScore] = useState(0);
+
+  console.log(backendScore);
+
+  const increaseBackendScoreHandler = useCallback((value: string) => {
+    setBackendScore((prevScore) => {
+      if (prevScore < 0.99) {
+        return prevScore + +value;
+      } else {
+        return 0.99;
+      }
+    });
+  }, []);
 
   const changeCoefficientHandler = (score: number) => {
     if (score > 0.8 && score < 1) {
@@ -40,19 +53,15 @@ const GameContainer = () => {
     setScreenshot(value);
   };
 
-  const increaseScoreHandler = useCallback(
-    (value: number) => {
-      gameCounter !== false &&
-        setScore((prevScore) => {
-          if (prevScore < 0.99) {
-            return prevScore + value;
-          } else {
-            return 0.99;
-          }
-        });
-    },
-    [gameCounter],
-  );
+  const increaseScoreHandler = useCallback((value: number) => {
+    setScore((prevScore) => {
+      if (prevScore < 0.99) {
+        return prevScore + value;
+      } else {
+        return 0.99;
+      }
+    });
+  }, []);
 
   const startGameHandler = () => {
     setGameCounter(true);
@@ -93,6 +102,7 @@ const GameContainer = () => {
 
         {gameCounter !== false ? (
           <GameRecorder
+            onIncreaseBackendScore={increaseBackendScoreHandler}
             onScreenshot={screenshotHandler}
             onIncreaseScore={increaseScoreHandler}
             gameCounter={gameCounter}
