@@ -32,7 +32,7 @@ const GameScore: FC<IGameScore> = ({ className, coefficient, score }) => {
   });
 
   const activeFirst = cls({
-    "active-coefficient": coefficient === 2,
+    "active-coefficient": coefficient === 1,
   });
 
   const keyframesStyle = `
@@ -74,9 +74,9 @@ const GameScore: FC<IGameScore> = ({ className, coefficient, score }) => {
 
       <img
         style={{
-          transform: `rotate(${-88 + score * 180}deg)  translate(1%, -7%)`,
+          transform: `rotate(${-88 + score * 170}deg)  translate(1%, -7%)`,
           objectFit: "cover",
-          transition: "transform 1s ease-in-out",
+          transition: "transform 5s ease",
           width: "100%",
           height: "100%",
           position: "absolute",

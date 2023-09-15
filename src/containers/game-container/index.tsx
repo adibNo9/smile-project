@@ -16,12 +16,29 @@ const GameContainer = () => {
   const [isShowForm, setIsShowForm] = useState(false);
   const [score, setScore] = useState(0);
   const [screenshot, setScreenshot] = useState<string | null>("");
+  const [coefficient, setCoefficient] = useState(0);
+
+  const changeCoefficientHandler = (score: number) => {
+    if (score > 0.8 && score < 1) {
+      setCoefficient(5);
+    } else if (score > 0.6 && score < 0.8) {
+      setCoefficient(4);
+    } else if (score > 0.4 && score < 0.6) {
+      setCoefficient(3);
+    } else if (score > 0.2 && score < 0.4) {
+      setCoefficient(2);
+    } else if (score > 0 && score < 0.2) {
+      setCoefficient(1);
+    }
+  };
+
+  useEffect(() => {
+    changeCoefficientHandler(score);
+  }, [score]);
 
   const screenshotHandler = (value: string | null) => {
     setScreenshot(value);
   };
-
-  console.log(score);
 
   const increaseScoreHandler = useCallback(
     (value: number) => {
@@ -63,11 +80,12 @@ const GameContainer = () => {
       <div className={styles["content-wrapper"]}>
         <GameScore
           score={score}
-          coefficient={5}
+          coefficient={coefficient}
           className={cls(styles["item-wrapper"], styles["score-wrapper"])}
         />
 
         <GameWheel
+          coefficient={coefficient}
           startCounter={startCounter}
           gameCounter={gameCounter}
           className={cls(styles["wheel-wrapper"], styles["item-wrapper"])}

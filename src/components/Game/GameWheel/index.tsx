@@ -14,6 +14,7 @@ interface IGameWheel {
   className?: string;
   startCounter?: boolean;
   gameCounter?: boolean | number;
+  coefficient?: number;
 }
 
 const GameWheel: FC<IGameWheel> = ({
@@ -21,6 +22,7 @@ const GameWheel: FC<IGameWheel> = ({
   className,
   gameCounter,
   startCounter,
+  coefficient,
 }) => {
   const [rotation, setRotation] = useState(0);
 
@@ -40,20 +42,18 @@ const GameWheel: FC<IGameWheel> = ({
   injectStyle(keyframesStyle);
 
   function randomIntFromInterval(min: number, max: number) {
-    // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   useEffect(() => {
     if (isStartPage) {
       setRotation(360);
-    } else if (startCounter === false && gameCounter === false) {
-      // const value = randomIntFromInterval(1, 359);
-      // console.log(value);
+    } else if (startCounter === false && gameCounter === false && coefficient) {
+      const value = randomIntFromInterval(1, 359);
 
-      setRotation(1800);
+      setRotation(coefficient * 720 + value);
     }
-  }, [gameCounter]);
+  }, [gameCounter, isStartPage, startCounter, coefficient]);
 
   const startPageWheel = cls({
     "start-page-wheel": isStartPage,
