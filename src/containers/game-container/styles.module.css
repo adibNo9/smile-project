@@ -51,3 +51,11 @@ background-image: url(../../assets/images/background.png);
     height: 20vh;
 }
 
+.screenshot-wrapper {
+    position: relative;
+    margin-top: 4rem;
+    width: 26vw !important;
+    height: 26vw !important;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}

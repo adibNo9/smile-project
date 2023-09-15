@@ -12,12 +12,16 @@ interface IGameRecorder {
   className: string;
   onStartGame: () => void;
   gameCounter?: boolean;
+  onIncreaseScore: (value: number) => void;
+  onScreenshot: (value: string | null) => void;
 }
 
 const GameRecorder: FC<IGameRecorder> = ({
   className,
   onStartGame,
   gameCounter,
+  onIncreaseScore,
+  onScreenshot,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
@@ -27,6 +31,12 @@ const GameRecorder: FC<IGameRecorder> = ({
   const onResults = useCallback((results: mpFaceMeshResults) => {
     const videoWidth = webcamRef?.current?.video?.videoWidth;
     const videoHeight = webcamRef?.current?.video?.videoHeight;
+
+    results && onIncreaseScore(0.01);
+    results &&
+      webcamRef.current &&
+      onScreenshot(webcamRef.current?.getScreenshot());
+
     if (!!canvasRef.current) {
       canvasRef.current.width = videoWidth || 0;
       canvasRef.current.height = videoHeight || 0;
@@ -78,6 +88,8 @@ const GameRecorder: FC<IGameRecorder> = ({
     });
 
     faceMesh.onResults(onResults);
+
+    console.log("first");
 
     const vid = webcamRef.current?.video;
 

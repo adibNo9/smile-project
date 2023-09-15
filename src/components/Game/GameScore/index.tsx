@@ -1,17 +1,20 @@
+import { FC } from "react";
+
 import cls from "classnames";
 
 import { ScoreSvg } from "../../../assets/icons/score-svg";
 import { ScoreWrapperIcon } from "../../../assets/icons/score-wrapper-icon";
 import ScoreHand from "../../../assets/images/score-hand.png";
+import injectStyle from "../GameWheel/injectStyle";
 import styles from "./styles.module.css";
 
-const GameScore = ({
-  className,
-  coefficient,
-}: {
+interface IGameScore {
   className?: string;
   coefficient: number;
-}) => {
+  score: number;
+}
+
+const GameScore: FC<IGameScore> = ({ className, coefficient, score }) => {
   const activeFifth = cls({
     "active-coefficient": coefficient === 5,
   });
@@ -31,6 +34,18 @@ const GameScore = ({
   const activeFirst = cls({
     "active-coefficient": coefficient === 2,
   });
+
+  const keyframesStyle = `
+        @-webkit-keyframes spin {
+          0% {
+              transform: rotate(-88deg) ;
+          }
+          100% {
+              transform: rotateZ(${-88 + score * 180}deg) ;
+          }
+        }
+      `;
+  injectStyle(keyframesStyle);
 
   return (
     <div className={cls(className, styles["game-score-wrapper"])}>
@@ -57,7 +72,21 @@ const GameScore = ({
         <p>Score</p>
       </div>
 
-      <img src={ScoreHand} alt="score-hand" />
+      <img
+        style={{
+          transform: `rotate(${-88 + score * 180}deg)  translate(1%, -7%)`,
+          objectFit: "cover",
+          transition: "transform 1s ease-in-out",
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 25,
+        }}
+        src={ScoreHand}
+        alt="score-hand"
+      />
       <ScoreWrapperIcon className={styles["wrapper-svg"]} />
       <ScoreSvg className={styles["score-svg"]} />
     </div>

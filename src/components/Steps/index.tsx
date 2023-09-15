@@ -2,7 +2,7 @@ import faceGif from "../../assets/gifs/face-gif.gif";
 import { ArrowSvg } from "../../assets/icons/arrow-svg";
 import { GiftPlace } from "../../assets/icons/gift-place";
 import { SingleGift } from "../../assets/icons/single-gift";
-import GameTurntable from "../Game/GameWheel";
+import GameWheel from "../Game/GameWheel";
 import StepCard from "../StepCard";
 import styles from "./styles.module.css";
 
@@ -14,7 +14,7 @@ const Steps = () => {
       </StepCard>
       <ArrowSvg className={styles.arrow} />
       <StepCard className={styles["wheel-wrapper"]}>
-        <GameTurntable isStartPage={true} />
+        <GameWheel isStartPage={true} />
       </StepCard>
       <ArrowSvg className={styles.arrow} />
       <StepCard className={styles["gift-wrapper"]}>

@@ -13,7 +13,7 @@ interface IGameWheel {
   isStartPage?: boolean;
   className?: string;
   startCounter?: boolean;
-  gameCounter?: boolean;
+  gameCounter?: boolean | number;
 }
 
 const GameWheel: FC<IGameWheel> = ({
@@ -50,7 +50,7 @@ const GameWheel: FC<IGameWheel> = ({
     } else if (startCounter === false && gameCounter === false) {
       // const value = randomIntFromInterval(1, 359);
       // console.log(value);
-      console.log(isStartPage);
+
       setRotation(1800);
     }
   }, [gameCounter]);

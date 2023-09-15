@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import cls from "classnames";
 
@@ -14,6 +14,28 @@ const GameContainer = () => {
   const [startCounter, setStartCounter] = useState(true);
   const [gameCounter, setGameCounter] = useState<boolean | undefined>();
   const [isShowForm, setIsShowForm] = useState(false);
+  const [score, setScore] = useState(0);
+  const [screenshot, setScreenshot] = useState<string | null>("");
+
+  const screenshotHandler = (value: string | null) => {
+    setScreenshot(value);
+  };
+
+  console.log(score);
+
+  const increaseScoreHandler = useCallback(
+    (value: number) => {
+      gameCounter !== false &&
+        setScore((prevScore) => {
+          if (prevScore < 0.99) {
+            return prevScore + value;
+          } else {
+            return 0.99;
+          }
+        });
+    },
+    [gameCounter],
+  );
 
   const startGameHandler = () => {
     setGameCounter(true);
@@ -32,10 +54,15 @@ const GameContainer = () => {
     // setIsShowForm(false);
   };
 
+  useEffect(() => {
+    score === 0.02 && startGameHandler();
+  }, [score]);
+
   return (
     <div className={styles["game-container"]}>
       <div className={styles["content-wrapper"]}>
         <GameScore
+          score={score}
           coefficient={5}
           className={cls(styles["item-wrapper"], styles["score-wrapper"])}
         />
@@ -46,11 +73,19 @@ const GameContainer = () => {
           className={cls(styles["wheel-wrapper"], styles["item-wrapper"])}
         />
 
-        <GameRecorder
-          gameCounter={gameCounter}
-          onStartGame={startGameHandler}
-          className={cls(styles["game-recorder"], styles["item-wrapper"])}
-        />
+        {gameCounter !== false ? (
+          <GameRecorder
+            onScreenshot={screenshotHandler}
+            onIncreaseScore={increaseScoreHandler}
+            gameCounter={gameCounter}
+            onStartGame={startGameHandler}
+            className={cls(styles["game-recorder"], styles["item-wrapper"])}
+          />
+        ) : (
+          <div className={styles["screenshot-wrapper"]}>
+            {screenshot ? <img src={screenshot} alt="screenshot" /> : <></>}
+          </div>
+        )}
       </div>
       <div className={styles["game-couter"]}>
         <GameCounter
