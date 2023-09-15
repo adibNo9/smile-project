@@ -41,7 +41,7 @@
 }
 
 .gift-wrapper img {
-    width: 40rem;
+    width: auto;
     height: 35rem;
     position: absolute;
     bottom: 20%;

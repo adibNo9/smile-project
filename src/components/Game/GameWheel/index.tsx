@@ -5,7 +5,7 @@ import cls from "classnames";
 import { ArrowTurntable } from "../../../assets/icons/arrow-turntable";
 import { GamePlaceSvg } from "../../../assets/icons/game-place-svg";
 import { GiftTurntable } from "../../../assets/icons/gift-turntable";
-import MainGameWheel from "../../../assets/images/turntable-game.png";
+import MainGameWheel from "../../../assets/images/wheel.png";
 import injectStyle from "./injectStyle";
 import styles from "./styles.module.css";
 
@@ -15,6 +15,7 @@ interface IGameWheel {
   startCounter?: boolean;
   gameCounter?: boolean | number;
   coefficient?: number;
+  onGiveUserGift?: (value: string) => void;
 }
 
 const GameWheel: FC<IGameWheel> = ({
@@ -23,8 +24,10 @@ const GameWheel: FC<IGameWheel> = ({
   gameCounter,
   startCounter,
   coefficient,
+  onGiveUserGift,
 }) => {
   const [rotation, setRotation] = useState(0);
+  const [randomValue, setRandomValue] = useState(0);
 
   const keyframesStyle = `
         @-webkit-keyframes spin {
@@ -50,10 +53,36 @@ const GameWheel: FC<IGameWheel> = ({
       setRotation(360);
     } else if (startCounter === false && gameCounter === false && coefficient) {
       const value = randomIntFromInterval(1, 359);
+      setRandomValue(value);
 
       setRotation(coefficient * 720 + value);
     }
   }, [gameCounter, isStartPage, startCounter, coefficient]);
+
+  useEffect(() => {
+    let timeout: any;
+    if (onGiveUserGift && gameCounter === false) {
+       timeout = setTimeout(() => {
+        if (randomValue < 19 && randomValue > 76) {
+          onGiveUserGift("powerbank");
+        } else if (randomValue > 126 && randomValue < 159) {
+          onGiveUserGift("flash");
+        } else if (randomValue > 209 && randomValue < 251) {
+          onGiveUserGift("airpod");
+        } else if (randomValue > 254 && randomValue < 276) {
+          onGiveUserGift("repeat");
+        } else if (randomValue > 277 && randomValue < 343) {
+          onGiveUserGift("mug");
+        } else {
+          onGiveUserGift("nothing");
+        }
+      }, 5000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [randomValue, onGiveUserGift, gameCounter]);
 
   const startPageWheel = cls({
     "start-page-wheel": isStartPage,

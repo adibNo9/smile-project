@@ -6,7 +6,6 @@ interface CountdownTimerProps {
   strokeBgColor: string;
   strokeColor: string;
   strokeWidth: number;
-  onShowForm: () => void;
   isCounterStart?: boolean;
   onStopCounter: () => void;
 }
@@ -17,7 +16,6 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
   strokeBgColor,
   strokeColor,
   strokeWidth,
-  onShowForm,
   isCounterStart,
   onStopCounter,
 }) => {
@@ -47,11 +45,6 @@ const GameCounter: React.FC<CountdownTimerProps> = ({
       };
     }
   }, [isCounterStart, countdown, milliseconds, onStopCounter]);
-
-  useEffect(() => {
-    !isCounterStart && onShowForm();
-  }, [isCounterStart, onShowForm]);
-
   const countdownSizeStyles = {
     height: size,
     width: size,

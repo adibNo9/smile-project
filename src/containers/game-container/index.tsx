@@ -18,8 +18,15 @@ const GameContainer = () => {
   const [screenshot, setScreenshot] = useState<string | null>("");
   const [coefficient, setCoefficient] = useState(0);
   const [backendScore, setBackendScore] = useState(0);
+  const [userGift, setUserGift] = useState<string>();
 
-  console.log(backendScore);
+  useEffect(() => {
+    userGift && userGift !== "repeat" && showFormHandler();
+    userGift && userGift === "repeat" && window.location.reload();
+  }, [userGift]);
+  const giveUserGiftHandler = (value: string) => {
+    setUserGift(value);
+  };
 
   const increaseBackendScoreHandler = useCallback((value: string) => {
     setBackendScore((prevScore) => {
@@ -76,8 +83,7 @@ const GameContainer = () => {
   };
 
   const showFormHandler = () => {
-    // setIsShowForm(true);
-    // setIsShowForm(false);
+    setIsShowForm(true);
   };
 
   useEffect(() => {
@@ -94,6 +100,7 @@ const GameContainer = () => {
         />
 
         <GameWheel
+          onGiveUserGift={giveUserGiftHandler}
           coefficient={coefficient}
           startCounter={startCounter}
           gameCounter={gameCounter}
@@ -122,13 +129,14 @@ const GameContainer = () => {
           strokeBgColor="#fff"
           strokeColor="#F8A61F"
           strokeWidth={4}
-          onShowForm={showFormHandler}
           isCounterStart={gameCounter}
           onStopCounter={stopGameCounterHandler}
         />
       </div>
-      {startCounter && <CounterModal onHideModal={hideStartCounterHandler} />}
-      {isShowForm && <FinalFormModal />}
+      {startCounter && (
+        <CounterModal onHideModal={hideStartCounterHandler} seconds={5} />
+      )}
+      {isShowForm && <FinalFormModal userGift={userGift} />}
     </div>
   );
 };

@@ -108,8 +108,6 @@ const GameRecorder: FC<IGameRecorder> = ({
 
     faceMesh.onResults(onResults);
 
-    console.log("first");
-
     const vid = webcamRef.current?.video;
 
     if (typeof vid !== "undefined" && vid !== null) {
