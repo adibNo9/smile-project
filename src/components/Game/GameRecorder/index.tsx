@@ -57,14 +57,12 @@ const GameRecorder: FC<IGameRecorder> = ({
       console.log("Image sent to server.");
     } catch (error) {
       console.error("Error sending image to server:", error);
-    } finally {
-      console.log(gameCounter);
     }
-  }, [onIncreaseBackendScore, gameCounter]);
+  }, [onIncreaseBackendScore]);
 
   useEffect(() => {
     gameCounter && capture();
-  }, [capture, gameCounter, gameCounter]);
+  }, [capture, userImg, gameCounter]);
 
   return (
     <div
