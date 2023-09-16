@@ -6,6 +6,10 @@ import Webcam from "react-webcam";
 
 import styles from "./styles.module.css";
 
+const videoConstraints = {
+  frameRate: { ideal: 10, max: 20 },
+};
+
 interface IGameRecorder {
   className: string;
   onIncreaseScore: (value: number) => void;
@@ -74,7 +78,8 @@ const GameRecorder: FC<IGameRecorder> = ({
       ref={wrapperRef}
     >
       <Webcam
-        screenshotFormat="image/png"
+        screenshotFormat="image/jpeg"
+        videoConstraints={videoConstraints}
         mirrored={true}
         imageSmoothing={true}
         audio={false}
