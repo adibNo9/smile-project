@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 
@@ -28,24 +29,24 @@ const StartContainer = () => {
 
     setImgSrc(imageSrc);
 
-    // try {
-    //   await axios
-    //     .post<Response>("/recognition", { file: imageSrc })
-    //     .then((response) => {
-    //       if (response.data.result === "Recognized") {
-    //         setUserId(response.data.id);
-    //         navigate("/game");
-    //       } else if (response.data.result === "Repeated") {
-    //         setText("Repeat user!");
-    //       } else {
-    //          setText("No Face in view, Try Again!");
-    //       }
-    //     })
-    //     .catch((error) => console.log(error));
-    //   console.log("Image sent to server.");
-    // } catch (error) {
-    //   console.error("Error sending image to server:", error);
-    // }
+    try {
+      await axios
+        .post<Response>("/recognition", { file: imageSrc })
+        .then((response) => {
+          if (response.data.result === "Recognized") {
+            setUserId(response.data.id);
+            navigate("/game");
+          } else if (response.data.result === "Repeated") {
+            setText("Repeat user!");
+          } else {
+            setText("No Face in view, Try Again!");
+          }
+        })
+        .catch((error) => console.log(error));
+      console.log("Image sent to server.");
+    } catch (error) {
+      console.error("Error sending image to server:", error);
+    }
   }
   return (
     <div className={styles["start-container"]}>
@@ -56,7 +57,6 @@ const StartContainer = () => {
           className={styles["start-button"]}
           onClick={() => {
             capture();
-            navigate("/game");
           }}
         >
           Start

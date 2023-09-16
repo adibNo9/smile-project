@@ -1,5 +1,6 @@
 import { FC, useCallback, useEffect, useRef } from "react"; // Import React
 
+import axios from "axios";
 import cls from "classnames";
 import Webcam from "react-webcam";
 
@@ -15,6 +16,13 @@ interface IGameRecorder {
   onIncreaseScore: (value: number) => void;
   onScreenshot: (value: string | null) => void;
   onIncreaseBackendScore: (value: string) => void;
+}
+
+interface Response {
+  id?: number;
+  result?: string;
+  status?: string;
+  result_prob: string;
 }
 
 const GameRecorder: FC<IGameRecorder> = ({
@@ -34,21 +42,28 @@ const GameRecorder: FC<IGameRecorder> = ({
     const videoWidth = webcamRef?.current?.video?.videoWidth;
     const videoHeight = webcamRef?.current?.video?.videoHeight;
 
+    async function capture() {
+      const imageSrc = webcamRef.current?.getScreenshot();
+
+      try {
+        await axios
+          .post<Response>("/smile", { file: imageSrc })
+          .then((response) => {
+            if (response.data.status === "200") {
+              onIncreaseBackendScore(response.data.result_prob);
+            } else {
+              console.log(response.data.result);
+            }
+          })
+          .catch((error) => console.log(error));
+        console.log("Image sent to server.");
+      } catch (error) {
+        console.error("Error sending image to server:", error);
+      }
+    }
+
     if (results) {
-      // try {
-      //   await axios
-      //     .post<Response>("/smile", { file: imageSrc })
-      //     .then((response) => {
-      //       if (response.data.status === "200") {
-      //         onIncreaseBackendScore(response.data.result_prob);
-      //       } else {
-      //         console.log(response.data.result);
-      //     })
-      //     .catch((error) => console.log(error));
-      //   console.log("Image sent to server.");
-      // } catch (error) {
-      //   console.error("Error sending image to server:", error);
-      // }
+      capture();
     }
 
     results && onIncreaseScore(0.01);
