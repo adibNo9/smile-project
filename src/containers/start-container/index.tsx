@@ -6,16 +6,18 @@ import Webcam from "react-webcam";
 
 import { StartBackgroundSvg } from "../../assets/icons/start-background-svg";
 import Steps from "../../components/Steps";
+import { useTransition } from "../../contexts/useTranslation";
 import { useUserId } from "../../contexts/useUserId";
 import styles from "./styles.module.css";
+import { enTexts, faTexts } from "./texts";
 
 const StartContainer = () => {
   const webcamRef = useRef<Webcam | null>(null); // Specify the correct type for webcamRef
   const navigate = useNavigate();
   const { setUserId } = useUserId();
-  const [text, setText] = useState(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Verovoluptatibus accusantium quidem placeat voluptates expedita a est quis fuga.",
-  );
+  const [text, setText] = useState("");
+  const { locale } = useTransition();
+  const texts = locale === "en" ? enTexts : faTexts;
 
   interface Response {
     id?: number;
@@ -34,9 +36,9 @@ const StartContainer = () => {
             setUserId(response.data.id);
             navigate("/game");
           } else if (response.data.result === "Repeated") {
-            setText("Repeat user!");
+            setText(texts.repeatUser);
           } else {
-            setText("No Face in view, Try Again!");
+            setText(texts.noFace);
           }
         })
         .catch((error) => console.log(error));
@@ -54,10 +56,9 @@ const StartContainer = () => {
           className={styles["start-button"]}
           onClick={() => {
             capture();
-            navigate("/game");
           }}
         >
-          Start
+          {texts.start}
         </button>
         <Steps />
       </div>

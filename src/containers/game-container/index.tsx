@@ -129,7 +129,7 @@ const GameContainer = () => {
         />
       </div>
       {startCounter && (
-        <CounterModal onHideModal={hideStartCounterHandler} seconds={5} />
+        <CounterModal onHideModal={hideStartCounterHandler} seconds={3} />
       )}
       {isShowForm && <FinalFormModal userGift={userGift} />}
     </div>

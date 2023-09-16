@@ -68,10 +68,6 @@ const GameScore: FC<IGameScore> = ({ className, coefficient, score }) => {
         </div>
       </div>
 
-      <div className={styles["score"]}>
-        <p>Score</p>
-      </div>
-
       <img
         style={{
           transform: `rotate(${-88 + score * 170}deg)  translate(1%, -7%)`,

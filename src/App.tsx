@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
+import { TranslationProvider } from "./contexts/useTranslation";
 import { UserIdProvider } from "./contexts/useUserId";
 import Game from "./pages/game";
 import Start from "./pages/start";
@@ -25,9 +26,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <UserIdProvider>
-      <RouterProvider router={router} />
-    </UserIdProvider>
+    <TranslationProvider>
+      <UserIdProvider>
+        <RouterProvider router={router} />
+      </UserIdProvider>
+    </TranslationProvider>
   );
 }
 

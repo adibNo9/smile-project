@@ -56,10 +56,10 @@
     top: 18%;
 }
 .wheel-place svg {
-    width: 36vw;
+    width: 32vw;
     height: 100%;
     position: absolute;
-    bottom: -12rem;
+    bottom: -16rem;
     left: 50%;
     transform: translate(-50%);
     z-index: 0;

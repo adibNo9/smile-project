@@ -1,8 +1,8 @@
     .webcam-wrapper {
         position: relative;
-        margin-top: 4rem;
-        width: 26vw !important;
-        height: 26vw !important;
+        margin-top: 2rem;
+            width: 24vw !important;
+            height: 22vw !important;
     }
 .webcam-wrapper>video {
     visibility: hidden;

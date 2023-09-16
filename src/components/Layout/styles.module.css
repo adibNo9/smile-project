@@ -27,3 +27,21 @@
     width: 10vw;
     max-width: 8rem;
 }
+
+.locale-control-wapper {
+    position: absolute;
+    top: 3%;
+    left: -3%;
+}
+
+.locale-control-wapper button {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.locale-control-wapper button svg {
+    width: 2rem;
+    height: 2rem;
+}

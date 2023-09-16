@@ -9,8 +9,10 @@ import { AngryFaceIcon } from "../../assets/icons/angry-face-icon";
 import { FormHeaderBackground } from "../../assets/icons/form-header-background";
 import { HappyFaceIcon } from "../../assets/icons/happy-face-icon";
 import { PokerFaceIcon } from "../../assets/icons/poker-face-icon";
+import { useTransition } from "../../contexts/useTranslation";
 import { useUserId } from "../../contexts/useUserId";
 import styles from "./styles.module.css";
+import { enTexts, faTexts } from "./texts";
 
 interface LoginFormValues {
   name: string;
@@ -31,19 +33,21 @@ const initialValues: LoginFormValues = {
   feedbackMessage: "",
 };
 
-const FinalFormSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  feedback: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
-  email: Yup.string().email("Invalid email"),
-  feedbackMessage: Yup.string().max(250, "Too Long!"),
-});
-
 const FinalForm = () => {
+  const { locale } = useTransition();
+  const texts = locale === "en" ? enTexts : faTexts;
   const [selectedBox, setSelectedBox] = useState<number | null>(null);
   const { userId } = useUserId();
+
+  const FinalFormSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(2, texts.tooShort)
+      .max(50, texts.tooLong)
+      .required(texts.required),
+    feedback: Yup.string().min(2, texts.tooShort).max(50, texts.tooLong),
+    email: Yup.string().email(texts.invalidEmail),
+    feedbackMessage: Yup.string().max(250, texts.tooLong),
+  });
 
   const postSurvey = async (rank: number, userId?: number) => {
     try {
@@ -104,11 +108,16 @@ const FinalForm = () => {
     postForm(values, userId);
   };
 
+  const FieldWrapper = cls({
+    "field-wrapper-en": locale === "en",
+    "field-wrapper-fa": locale === "fa",
+  });
+
   return (
     <div className={styles["form-container"]}>
       <div className={styles["form-header"]}>
         <FormHeaderBackground className={styles["form-header-svg"]} />
-        <h1>Are you happy with our service ?</h1>
+        <h1>{texts.title}</h1>
       </div>
       <div className={styles["form-wrapper"]}>
         <Formik
@@ -119,48 +128,51 @@ const FinalForm = () => {
         >
           {({ errors, touched, isValid }) => (
             <Form noValidate>
-              <div className={styles["field-wrapper"]}>
+              <div className={styles[FieldWrapper]}>
                 <Field
                   autoComplete="off"
                   type="text"
-                  placeholder="Name"
+                  placeholder={texts.name}
                   id="name"
                   name="name"
-                  className={
-                    styles[cls({ error: errors.name && touched.name })]
-                  }
+                  className={cls(
+                    styles[cls({ error: errors.name && touched.name })],
+                    styles[FieldWrapper],
+                  )}
                 />
                 <ErrorMessage component="span" name="name" />
               </div>
 
-              <div className={styles["field-wrapper"]}>
+              <div className={styles[FieldWrapper]}>
                 <Field
                   autoComplete="off"
                   type="email"
-                  placeholder="Email"
+                  placeholder={texts.email}
                   id="email"
                   name="email"
-                  className={
-                    styles[cls({ error: errors.email && touched.email })]
-                  }
+                  className={cls(
+                    styles[FieldWrapper],
+                    styles[cls({ error: errors.email && touched.email })],
+                  )}
                 />
                 <ErrorMessage component="span" name="email" />
               </div>
 
-              <div className={styles["field-wrapper"]}>
+              <div className={styles[FieldWrapper]}>
                 <Field
                   autoComplete="off"
                   type="text"
-                  placeholder="Give Feedback"
+                  placeholder={texts.feedback}
                   id="feedback"
                   name="feedback"
-                  className={
+                  className={cls(
+                    styles[FieldWrapper],
                     styles[
                       cls({
                         error: errors.feedback && touched.feedback,
                       })
-                    ]
-                  }
+                    ],
+                  )}
                 />
                 <ErrorMessage component="span" name="feedback" />
               </div>
@@ -170,12 +182,12 @@ const FinalForm = () => {
                 id="feedback-message"
                 name="feedbackMessage"
                 rows={4}
-                placeholder="Tell us how we can improve"
+                placeholder={texts.textarea}
                 autoComplete="off"
               />
 
               <button type="submit" disabled={!isValid}>
-                Submit
+                {texts.submit}
               </button>
             </Form>
           )}

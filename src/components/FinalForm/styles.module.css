@@ -121,6 +121,11 @@ z-index: 10;
     background-position: 1rem center;
 }
 
+.form-wrapper form input.field-wrapper-fa {
+    background-position: 96% center !important;
+    padding-right: 3.5vw !important;
+    padding-left: 0.5vw !important;
+}
 .form-wrapper form input[id=feedback] {
     background-image: url(../../assets/icons/feedback-icon.svg);
     background-repeat: no-repeat;
@@ -182,17 +187,26 @@ z-index: 10;
 .survey-item.disabled {
     cursor: default;
 }
-.field-wrapper {
+.field-wrapper-en,
+.field-wrapper-fa {
     position: relative;
 }
 
-.field-wrapper span {
+.field-wrapper-en span {
     color: red;
     position: absolute;
     right: 0.5rem;
     top: 0.5rem;
     width: 6rem;
     text-align: right;
+}
+.field-wrapper-fa span {
+    color: red;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    width: 6rem;
+    text-align: left;
 }
 @media (min-width:980px) and (max-width:1280px) {
     .form-wrapper {
