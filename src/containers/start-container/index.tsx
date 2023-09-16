@@ -54,6 +54,7 @@ const StartContainer = () => {
           className={styles["start-button"]}
           onClick={() => {
             capture();
+            navigate("/game");
           }}
         >
           Start

@@ -87,8 +87,8 @@ const GameContainer = () => {
   };
 
   useEffect(() => {
-    score === 0.02 && startGameHandler();
-  }, [score]);
+    !startCounter && startGameHandler();
+  }, [startCounter]);
 
   return (
     <div className={styles["game-container"]}>
@@ -107,20 +107,15 @@ const GameContainer = () => {
           className={cls(styles["wheel-wrapper"], styles["item-wrapper"])}
         />
 
-        {gameCounter !== false ? (
-          <GameRecorder
-            onIncreaseBackendScore={increaseBackendScoreHandler}
-            onScreenshot={screenshotHandler}
-            onIncreaseScore={increaseScoreHandler}
-            gameCounter={gameCounter}
-            onStartGame={startGameHandler}
-            className={cls(styles["game-recorder"], styles["item-wrapper"])}
-          />
-        ) : (
-          <div className={styles["screenshot-wrapper"]}>
-            {screenshot ? <img src={screenshot} alt="screenshot" /> : <></>}
-          </div>
-        )}
+        <GameRecorder
+          onIncreaseBackendScore={increaseBackendScoreHandler}
+          onScreenshot={screenshotHandler}
+          onIncreaseScore={increaseScoreHandler}
+          gameCounter={gameCounter}
+          onStartGame={startGameHandler}
+          startCounter={startCounter}
+          className={cls(styles["game-recorder"], styles["item-wrapper"])}
+        />
       </div>
       <div className={styles["game-couter"]}>
         <GameCounter

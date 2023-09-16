@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import axios from "axios";
 import cls from "classnames";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -8,6 +9,7 @@ import { AngryFaceIcon } from "../../assets/icons/angry-face-icon";
 import { FormHeaderBackground } from "../../assets/icons/form-header-background";
 import { HappyFaceIcon } from "../../assets/icons/happy-face-icon";
 import { PokerFaceIcon } from "../../assets/icons/poker-face-icon";
+import { useUserId } from "../../contexts/useUserId";
 import styles from "./styles.module.css";
 
 interface LoginFormValues {
@@ -15,6 +17,11 @@ interface LoginFormValues {
   email: string;
   feedback: string;
   feedbackMessage: string;
+}
+
+interface FormResponse {
+  result: string;
+  status: string;
 }
 
 const initialValues: LoginFormValues = {
@@ -36,20 +43,65 @@ const FinalFormSchema = Yup.object().shape({
 
 const FinalForm = () => {
   const [selectedBox, setSelectedBox] = useState<number | null>(null);
+  const { userId } = useUserId();
+
+  const postSurvey = async (rank: number, userId?: number) => {
+    try {
+      await axios
+        .post<FormResponse>("/saverank", {
+          rank: rank,
+          id: userId,
+        })
+        .then((response) => {
+          if (response.data.status === "200") {
+            console.log(response.data.result);
+          } else {
+            console.log(response.data.result);
+          }
+        })
+        .catch((error) => console.log(error));
+      console.log("Image sent to server.");
+    } catch (error) {
+      console.error("Error sending image to server:", error);
+    }
+  };
+
+  const postForm = async (values: LoginFormValues, userId?: number) => {
+    try {
+      await axios
+        .post<FormResponse>("/savecomment", {
+          name: values.name,
+          email: values.email,
+          comment: values.feedbackMessage,
+          id: userId,
+        })
+        .then((response) => {
+          if (response.data.status === "200") {
+            console.log(response.data.result);
+          } else {
+            console.log(response.data.result);
+          }
+        })
+        .catch((error) => console.log(error));
+      console.log("Image sent to server.");
+    } catch (error) {
+      console.error("Error sending image to server:", error);
+    }
+  };
 
   const handleBoxClick = (boxNumber: number) => {
-    if (selectedBox === boxNumber) {
+    if (selectedBox) {
       // If the clicked box is already selected, deselect it
-      setSelectedBox(null);
+      return;
     } else {
       // Otherwise, select the clicked box
       setSelectedBox(boxNumber);
+      postSurvey(boxNumber, userId);
     }
   };
 
   const handleSubmit = (values: LoginFormValues) => {
-    // Handle form submission logic here
-    // console.log(values);
+    postForm(values, userId);
   };
 
   return (
@@ -135,6 +187,7 @@ const FinalForm = () => {
             className={cls(
               styles["survey-item"],
               styles[cls({ selected: selectedBox === 1 })],
+              styles[cls({ disabled: !!selectedBox })],
             )}
           >
             <AngryFaceIcon />
@@ -144,6 +197,7 @@ const FinalForm = () => {
             className={cls(
               styles["survey-item"],
               styles[cls({ selected: selectedBox === 2 })],
+              styles[cls({ disabled: !!selectedBox })],
             )}
           >
             <PokerFaceIcon />
@@ -153,6 +207,7 @@ const FinalForm = () => {
             className={cls(
               styles["survey-item"],
               styles[cls({ selected: selectedBox === 3 })],
+              styles[cls({ disabled: !!selectedBox })],
             )}
           >
             <HappyFaceIcon />

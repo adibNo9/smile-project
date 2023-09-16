@@ -57,13 +57,13 @@ z-index: 10;
 }
 
 .form-wrapper form input {
-    width: 30.5vw;
+    width: 28vw;
     height: 2rem;
     border: none;
     border-radius: 0.5rem;
     background-color: #424242;
     color: #fff;
-    padding-left: 1vw;
+    padding-left: 3.5vw;
         padding-right: 0.5vw;
     outline: none;
     color: #FFF;
@@ -179,6 +179,9 @@ z-index: 10;
     border-color: #F8A61F;
 }
 
+.survey-item.disabled {
+    cursor: default;
+}
 .field-wrapper {
     position: relative;
 }

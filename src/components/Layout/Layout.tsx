@@ -8,6 +8,7 @@ import styles from "./styles.module.css";
 const Layout = () => {
   const location = useLocation();
   const pathname = location.pathname;
+
   return (
     <>
       <div className={styles["layout-container"]}>

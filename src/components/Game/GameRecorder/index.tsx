@@ -8,11 +8,12 @@ import styles from "./styles.module.css";
 
 interface IGameRecorder {
   className: string;
-  onStartGame: () => void;
-  gameCounter?: boolean;
   onIncreaseScore: (value: number) => void;
   onScreenshot: (value: string | null) => void;
   onIncreaseBackendScore: (value: string) => void;
+  gameCounter?: boolean;
+  onStartGame: () => void;
+  startCounter: boolean;
 }
 
 interface Response {
@@ -25,15 +26,18 @@ interface Response {
 
 const GameRecorder: FC<IGameRecorder> = ({
   className,
-  onStartGame,
   gameCounter,
   onIncreaseScore,
   onScreenshot,
+  onStartGame,
   onIncreaseBackendScore,
+  startCounter,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
   const [userImg, setUserImg] = useState<string | null>(null);
+
+  console.warn(gameCounter);
 
   const capture = useCallback(async () => {
     const imageSrc = webcamRef.current?.getScreenshot();
@@ -42,10 +46,8 @@ const GameRecorder: FC<IGameRecorder> = ({
       await axios
         .post<Response>("/smile", { file: imageSrc })
         .then((response) => {
-          onStartGame();
           if (response.data.status === "200") {
             onIncreaseBackendScore(response.data.result_prob);
-            onScreenshot(response.data.result_prob);
             setUserImg(response.data.result_img);
           } else {
             console.log(response.data.result);
@@ -56,13 +58,13 @@ const GameRecorder: FC<IGameRecorder> = ({
     } catch (error) {
       console.error("Error sending image to server:", error);
     } finally {
-      capture();
+      console.log(gameCounter);
     }
-  }, [onIncreaseBackendScore, onScreenshot, onStartGame]);
+  }, [onIncreaseBackendScore, gameCounter]);
 
   useEffect(() => {
-    capture();
-  }, [capture]);
+    gameCounter && capture();
+  }, [capture, gameCounter, gameCounter]);
 
   return (
     <div
