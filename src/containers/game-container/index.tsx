@@ -14,8 +14,6 @@ const GameContainer = () => {
   const [startCounter, setStartCounter] = useState(true);
   const [gameCounter, setGameCounter] = useState<boolean | undefined>();
   const [isShowForm, setIsShowForm] = useState(false);
-  const [score, setScore] = useState(0);
-  const [screenshot, setScreenshot] = useState<string | null>("");
   const [coefficient, setCoefficient] = useState(0);
   const [backendScore, setBackendScore] = useState(0);
   const [userGift, setUserGift] = useState<string>();
@@ -38,37 +36,23 @@ const GameContainer = () => {
     });
   }, []);
 
-  const changeCoefficientHandler = (score: number) => {
-    if (score > 0.8 && score < 1) {
+  const changeCoefficientHandler = (backendScore: number) => {
+    if (backendScore > 0.8 && backendScore < 1) {
       setCoefficient(5);
-    } else if (score > 0.6 && score < 0.8) {
+    } else if (backendScore > 0.6 && backendScore < 0.8) {
       setCoefficient(4);
-    } else if (score > 0.4 && score < 0.6) {
+    } else if (backendScore > 0.4 && backendScore < 0.6) {
       setCoefficient(3);
-    } else if (score > 0.2 && score < 0.4) {
+    } else if (backendScore > 0.2 && backendScore < 0.4) {
       setCoefficient(2);
-    } else if (score > 0 && score < 0.2) {
+    } else if (backendScore > 0 && backendScore < 0.2) {
       setCoefficient(1);
     }
   };
 
   useEffect(() => {
-    changeCoefficientHandler(score);
-  }, [score]);
-
-  const screenshotHandler = (value: string | null) => {
-    setScreenshot(value);
-  };
-
-  const increaseScoreHandler = useCallback((value: number) => {
-    setScore((prevScore) => {
-      if (prevScore < 0.99) {
-        return prevScore + value;
-      } else {
-        return 0.99;
-      }
-    });
-  }, []);
+    changeCoefficientHandler(backendScore);
+  }, [backendScore]);
 
   const startGameHandler = () => {
     setGameCounter(true);
@@ -94,9 +78,12 @@ const GameContainer = () => {
     <div className={styles["game-container"]}>
       <div className={styles["content-wrapper"]}>
         <GameScore
-          score={score}
+          score={backendScore}
           coefficient={coefficient}
-          className={cls(styles["item-wrapper"], styles["score-wrapper"])}
+          className={cls(
+            styles["item-wrapper"],
+            styles["backendScore-wrapper"],
+          )}
         />
 
         <GameWheel
@@ -109,11 +96,7 @@ const GameContainer = () => {
 
         <GameRecorder
           onIncreaseBackendScore={increaseBackendScoreHandler}
-          onScreenshot={screenshotHandler}
-          onIncreaseScore={increaseScoreHandler}
           gameCounter={gameCounter}
-          onStartGame={startGameHandler}
-          startCounter={startCounter}
           className={cls(styles["game-recorder"], styles["item-wrapper"])}
         />
       </div>

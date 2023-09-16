@@ -12,12 +12,8 @@ const videoConstraints = {
 
 interface IGameRecorder {
   className: string;
-  onIncreaseScore: (value: number) => void;
-  onScreenshot: (value: string | null) => void;
   onIncreaseBackendScore: (value: string) => void;
   gameCounter?: boolean;
-  onStartGame: () => void;
-  startCounter: boolean;
 }
 
 interface Response {
@@ -31,11 +27,7 @@ interface Response {
 const GameRecorder: FC<IGameRecorder> = ({
   className,
   gameCounter,
-  onIncreaseScore,
-  onScreenshot,
-  onStartGame,
   onIncreaseBackendScore,
-  startCounter,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
