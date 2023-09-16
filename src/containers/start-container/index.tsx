@@ -13,7 +13,6 @@ const StartContainer = () => {
   const webcamRef = useRef<Webcam | null>(null); // Specify the correct type for webcamRef
   const navigate = useNavigate();
   const { setUserId } = useUserId();
-  const [imgSrc, setImgSrc] = useState<string | null | undefined>("");
   const [text, setText] = useState(
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Verovoluptatibus accusantium quidem placeat voluptates expedita a est quis fuga.",
   );
@@ -26,8 +25,6 @@ const StartContainer = () => {
 
   async function capture() {
     const imageSrc = webcamRef.current?.getScreenshot();
-
-    setImgSrc(imageSrc);
 
     try {
       await axios
@@ -80,14 +77,6 @@ const StartContainer = () => {
             height: 400,
           }}
         />
-      </div>
-      <div>
-        {imgSrc !== "" && !!imgSrc && (
-          <div style={{ marginTop: "20px" }}>
-            <h2>Captured Image</h2>
-            <img src={imgSrc} alt="Captured" style={{ marginTop: "10px" }} />
-          </div>
-        )}
       </div>
     </div>
   );

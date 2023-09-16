@@ -4,3 +4,6 @@
         width: 26vw !important;
         height: 26vw !important;
     }
+.webcam-wrapper>video {
+    visibility: hidden;
+}
