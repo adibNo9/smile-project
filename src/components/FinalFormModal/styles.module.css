@@ -17,7 +17,7 @@
     z-index: 40;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     width: 100%;
     height: 78vh;
 }
@@ -27,25 +27,31 @@
     display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        height: 75vh;
-        width: 45vw;
+        height: 78vh;
+            width: calc(100% - 45vw);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 }
 
-.gift-wrapper svg {
+.gift-wrapper>img {
     position: absolute;
-        bottom: -3rem;
-        left: 54.5%;
-        transform: translateX(-50%);
-    width: 40rem;
-    height: 35rem;
-}
-
-.gift-wrapper img {
-    width: 24rem;
-        height: autp;
-    position: absolute;
-    bottom: 20%;
+top: 3%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    width: 24rem;
+        height: auto;
+        z-index: 20;
+}
+
+.gift-place {
+    margin-bottom: 2rem !important;
+    margin: auto;
+    width: 32rem;
+    height: auto;
+    z-index: 0;
+}
+
+.gift-place img {
+    width: 100%;
 }

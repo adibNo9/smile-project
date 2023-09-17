@@ -41,7 +41,7 @@ const GameScore: FC<IGameScore> = ({ className, coefficient, score }) => {
               transform: rotate(-88deg) ;
           }
           100% {
-              transform: rotateZ(${-88 + score * 180}deg) ;
+              transform: rotateZ(${-88 + score * 5.7}deg) ;
           }
         }
       `;
@@ -70,7 +70,7 @@ const GameScore: FC<IGameScore> = ({ className, coefficient, score }) => {
 
       <img
         style={{
-          transform: `rotate(${-88 + score * 170}deg)  translate(1%, -7%)`,
+          transform: `rotate(${-88 + score * 5.7}deg)  translate(1%, -7%)`,
           objectFit: "cover",
           transition: "transform 5s ease",
           width: "100%",

@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import { GiftPlace } from "../../assets/icons/gift-place";
 import airpod from "../../assets/images/airpod.png";
 import flash from "../../assets/images/flash.png";
+import GiftPlace from "../../assets/images/gift-place.png";
 import mug from "../../assets/images/mug.png";
 import nothing from "../../assets/images/nothing.png";
 import powerBank from "../../assets/images/power-bank.png";
@@ -30,7 +30,9 @@ const FinalFormModal: FC<IFinalForm> = ({ userGift }) => {
           ) : (
             <img src={nothing} alt="nothing" />
           )}
-          <GiftPlace />
+          <div className={styles["gift-place"]}>
+            <img src={GiftPlace} alt="gift-place" />
+          </div>
         </div>
         <FinalForm />
       </div>

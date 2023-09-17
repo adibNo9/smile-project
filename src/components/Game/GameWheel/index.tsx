@@ -34,9 +34,7 @@ const GameWheel: FC<IGameWheel> = ({
           0% {
               transform: rotateZ(0) ;
           }
-          10% {
-              transform: rotateZ(-35deg) ;
-          }
+
           100% {
               transform: rotateZ(${rotation}deg) ;
           }
@@ -54,16 +52,16 @@ const GameWheel: FC<IGameWheel> = ({
     } else if (startCounter === false && gameCounter === false && coefficient) {
       const value = randomIntFromInterval(1, 359);
       setRandomValue(value);
-
-      setRotation(coefficient * 720 + value);
+      setTimeout(() => setRotation(coefficient * 720 + value), 3000);
     }
   }, [gameCounter, isStartPage, startCounter, coefficient]);
 
   useEffect(() => {
+    console.log(randomValue);
     let timeout: any;
     if (onGiveUserGift && gameCounter === false) {
-       timeout = setTimeout(() => {
-        if (randomValue < 19 && randomValue > 76) {
+      timeout = setTimeout(() => {
+        if (randomValue > 19 && randomValue < 76) {
           onGiveUserGift("powerbank");
         } else if (randomValue > 126 && randomValue < 159) {
           onGiveUserGift("flash");

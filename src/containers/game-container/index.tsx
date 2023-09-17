@@ -19,8 +19,17 @@ const GameContainer = () => {
   const [userGift, setUserGift] = useState<string>();
 
   useEffect(() => {
-    userGift && userGift !== "repeat" && showFormHandler();
-    userGift && userGift === "repeat" && window.location.reload();
+    const timeout = setTimeout(
+      () =>
+        userGift && userGift === "repeat"
+          ? window.location.reload()
+          : userGift && userGift !== "repeat" && true,
+      5000,
+    );
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [userGift]);
   const giveUserGiftHandler = (value: string) => {
     setUserGift(value);
@@ -28,24 +37,24 @@ const GameContainer = () => {
 
   const increaseBackendScoreHandler = useCallback((value: string) => {
     setBackendScore((prevScore) => {
-      if (prevScore < 0.99) {
+      if (prevScore < 30) {
         return prevScore + +value;
       } else {
-        return 0.99;
+        return 30;
       }
     });
   }, []);
 
   const changeCoefficientHandler = (backendScore: number) => {
-    if (backendScore > 0.8 && backendScore < 1) {
+    if (backendScore > 24 && backendScore < 30) {
       setCoefficient(5);
-    } else if (backendScore > 0.6 && backendScore < 0.8) {
+    } else if (backendScore > 18 && backendScore < 24) {
       setCoefficient(4);
-    } else if (backendScore > 0.4 && backendScore < 0.6) {
+    } else if (backendScore > 12 && backendScore < 18) {
       setCoefficient(3);
-    } else if (backendScore > 0.2 && backendScore < 0.4) {
+    } else if (backendScore > 6 && backendScore < 12) {
       setCoefficient(2);
-    } else if (backendScore > 0 && backendScore < 0.2) {
+    } else if (backendScore > 0 && backendScore < 6) {
       setCoefficient(1);
     }
   };
