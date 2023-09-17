@@ -23,7 +23,7 @@ const GameContainer = () => {
       () =>
         userGift && userGift === "repeat"
           ? window.location.reload()
-          : userGift && userGift !== "repeat" && true,
+          : userGift && userGift !== "repeat" && showFormHandler(),
       5000,
     );
 
