@@ -1,13 +1,13 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react"; // Import React
 
-import axios from "axios";
 import cls from "classnames";
 import Webcam from "react-webcam";
 
+import { useSocket } from "../../../hooks/useSocket";
 import styles from "./styles.module.css";
 
 const videoConstraints = {
-  frameRate: { ideal: 10, max: 20 },
+  frameRate: { ideal: 30, max: 60 },
 };
 
 interface IGameRecorder {
@@ -17,9 +17,6 @@ interface IGameRecorder {
 }
 
 interface Response {
-  id?: number;
-  result?: string;
-  status?: string;
   result_prob: string;
   result_img: string;
 }
@@ -32,33 +29,28 @@ const GameRecorder: FC<IGameRecorder> = ({
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
   const [userImg, setUserImg] = useState<string | null>(null);
+  const socket = useSocket("http://localhost:5000/smile", {
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
+    autoConnect: false,
+  });
 
-  console.warn(gameCounter);
-
-  const capture = useCallback(async () => {
+  const sendImg = useCallback(() => {
     const imageSrc = webcamRef.current?.getScreenshot();
 
-    try {
-      await axios
-        .post<Response>("/smile", { file: imageSrc })
-        .then((response) => {
-          if (response.data.status === "200") {
-            onIncreaseBackendScore(response.data.result_prob);
-            setUserImg(response.data.result_img);
-          } else {
-            console.log(response.data.result);
-          }
-        })
-        .catch((error) => console.log(error));
-      console.log("Image sent to server.");
-    } catch (error) {
-      console.error("Error sending image to server:", error);
-    }
-  }, [onIncreaseBackendScore]);
+    socket.emit("send_image", { file: imageSrc });
+  }, [socket]);
 
   useEffect(() => {
-    gameCounter && capture();
-  }, [capture, userImg, gameCounter]);
+    gameCounter && sendImg();
+  }, [sendImg, userImg, gameCounter]);
+
+  useEffect(() => {
+    socket.on("receive_data", (data: Response) => {
+      onIncreaseBackendScore(data.result_prob);
+      setUserImg(data.result_img);
+    });
+  }, [socket, onIncreaseBackendScore]);
 
   return (
     <div
