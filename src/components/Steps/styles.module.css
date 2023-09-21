@@ -1,50 +1,50 @@
 .steps-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1vw;
-    width: auto;
-    margin-bottom: 5vh;
-    margin-top: 3vh;
-    direction: ltr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  width: auto;
+  margin-bottom: 5vh;
+  margin-top: 3vh;
+  direction: ltr;
 }
 .steps-container .arrow {
-    width: 2.5rem;
+  width: 2.5rem;
 }
 
 .face-wrapper img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
 }
 
 .gift-place {
-    width: 70%;
-    height: 70%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-45%);
-    bottom: 12%;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-45%);
+  bottom: 12%;
 }
 
 .single-gift {
-    margin-top: 80px;
-    animation: bounce 2s linear infinite;
-    transition: transform 0.5s ease-in-out;
+  margin-top: 80px;
+  animation: bounce 2s linear infinite;
+  transition: transform 0.5s ease-in-out;
 }
 
 @keyframes bounce {
-    0% {
-        transform: scale(0) translateY(100px);
-    }
+  0% {
+    transform: scale(0) translateY(100px);
+  }
 
-    100% {
-        transform: scale(1) translateY(-100px);
-    }
+  100% {
+    transform: scale(1) translateY(-100px);
+  }
 
-    /* 100% {
+  /* 100% {
                                 transform: scale(0) translateY(100px);
                             } */
 }

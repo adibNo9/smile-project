@@ -24,7 +24,7 @@ const GameContainer = () => {
         userGift && userGift === "repeat"
           ? window.location.reload()
           : userGift && userGift !== "repeat" && showFormHandler(),
-      5000,
+      7000
     );
 
     return () => {
@@ -91,7 +91,7 @@ const GameContainer = () => {
           coefficient={coefficient}
           className={cls(
             styles["item-wrapper"],
-            styles["backendScore-wrapper"],
+            styles["backendScore-wrapper"]
           )}
         />
 

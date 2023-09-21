@@ -1,68 +1,67 @@
 .game-container {
-background-image: url(../../assets/images/background.png);
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+  background-image: url(../../assets/images/background.png);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .item-wrapper {
-    position: relative;
-    width: 22vw;
-        height: 22vw;
-        max-width: 22rem;
-        max-height: 22rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 22vw;
+  height: 22vw;
+  max-width: 22rem;
+  max-height: 22rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .wheel-wrapper {
-    width: 25vw;
-        height: 25vw;
-        max-width: 25rem;
-        max-height: 25rem;
+  width: 25vw;
+  height: 25vw;
+  max-width: 25rem;
+  max-height: 25rem;
 }
 .content-wrapper {
-    position: absolute;
-    top: 26vh;
-        margin: auto;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-            gap: 8vw;
-        width: 100%;
-        margin-bottom: 5vh;
-        margin-top: 3vh;
-        margin: auto;
-        direction: ltr;
+  position: absolute;
+  top: 26vh;
+  margin: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8vw;
+  width: 100%;
+  margin-bottom: 5vh;
+  margin-top: 3vh;
+  margin: auto;
+  direction: ltr;
 }
 
-
 .game-recorder {
-    background-image: url(../../assets/icons/face-background.svg);
-    background-repeat: no-repeat;
-    border-radius: 1.5rem;
-        overflow: hidden;
+  background-image: url(../../assets/icons/face-background.svg);
+  background-repeat: no-repeat;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }
 
 .game-couter {
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .game-counter-wrapper {
-    width: 20vh;
-    height: 20vh;
+  width: 20vh;
+  height: 20vh;
 }
 
 .screenshot-wrapper {
-    position: relative;
-    width: 24vw !important;
-        height: 24vw !important;
-    border-radius: 1.5rem;
-    overflow: hidden;
+  position: relative;
+  width: 24vw !important;
+  height: 24vw !important;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }

@@ -52,7 +52,7 @@ const GameWheel: FC<IGameWheel> = ({
     } else if (startCounter === false && gameCounter === false && coefficient) {
       const value = randomIntFromInterval(1, 359);
       setRandomValue(value);
-      setTimeout(() => setRotation(coefficient * 720 + value), 3000);
+      setTimeout(() => setRotation(coefficient * 720 + value), 5000);
     }
   }, [gameCounter, isStartPage, startCounter, coefficient]);
 

@@ -35,7 +35,7 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
       locale,
       setLocale,
     }),
-    [locale],
+    [locale]
   );
 
   return (

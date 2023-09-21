@@ -128,11 +128,11 @@ z-index: 10;
     padding-right: 3.5vw !important;
     padding-left: 0.5vw !important;
     direction: rtl;
-    font-family: 'nazanin';
+    font-family: 'yekan';
 }
 
 .form-wrapper form textarea.field-wrapper-fa {
-    font-family: 'nazanin';
+    font-family: 'yekan';
     direction: rtl;
 }
 .form-wrapper form input[id=feedback] {

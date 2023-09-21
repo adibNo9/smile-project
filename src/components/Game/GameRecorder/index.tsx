@@ -57,7 +57,7 @@ const GameRecorder: FC<IGameRecorder> = ({
       className={cls(
         styles["webcam-wrapper"],
         styles["game-wrapper"],
-        className,
+        className
       )}
       ref={wrapperRef}
     >

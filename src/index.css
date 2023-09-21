@@ -10,11 +10,11 @@ body {
 }
 
 .persian-class {
-  font-family: "nazanin", sans-serif;
+  font-family: "yekan", sans-serif;
 }
 
 @font-face {
-  font-family: "nazanin";
-  src: local("nazanin"),
-    url("../src/assets/fonts/nazanin.ttf") format("truetype");
+  font-family: "yekan";
+  src: local("yekan"),
+    url("../src/assets/fonts/yekan.ttf") format("truetype");
 }
