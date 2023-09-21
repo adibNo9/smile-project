@@ -40,7 +40,9 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <TranslationContext.Provider value={value}>
-      {children}
+      <div className={locale === "en" ? "english-class" : "persian-class"}>
+        {children}
+      </div>
     </TranslationContext.Provider>
   );
 };

@@ -49,11 +49,16 @@
     margin: auto;
     color: #1D1E25;
     text-align: center;
-    font-size: 2.30588rem;
+    font-size: 2rem;
     font-weight: 700;
     border: none;
     margin-top: 3rem;
     cursor: pointer;
+    font-family: inherit;
+}
+
+.persian-lng {
+    font-size: 2.7rem;
 }
 .start-button:hover {
     background: rgba(255, 194, 0, 0.60);

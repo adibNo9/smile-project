@@ -7,6 +7,7 @@
     backdrop-filter: blur(25px);
     background: rgba(21, 22, 24, 0.60);
     z-index: 30;
+   
 }
 
 .final-form-modal {
@@ -20,6 +21,7 @@
     align-items: flex-end;
     width: 100%;
     height: 78vh;
+    direction: ltr;
 }
 
 .gift-wrapper {

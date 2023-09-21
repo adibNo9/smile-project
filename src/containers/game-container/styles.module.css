@@ -36,6 +36,7 @@ background-image: url(../../assets/images/background.png);
         margin-bottom: 5vh;
         margin-top: 3vh;
         margin: auto;
+        direction: ltr;
 }
 
 

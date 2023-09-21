@@ -11,6 +11,9 @@
     height: 28vh;
     width: 92%;
     z-index: 40;
+
+    
+    direction: ltr;
 }
 
 .smile-logo img {

@@ -1,11 +1,20 @@
 body {
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.english-class {
+  font-family: "Rubik", sans-serif !important;
+}
+
+.persian-class {
+  font-family: "nazanin", sans-serif;
+}
+
+@font-face {
+  font-family: "nazanin";
+  src: local("nazanin"),
+    url("../src/assets/fonts/nazanin.ttf") format("truetype");
 }

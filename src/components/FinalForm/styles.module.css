@@ -47,6 +47,7 @@ z-index: 10;
     font-size: 1.5rem;
         height: auto;
     margin: 0;
+    font-family: inherit;
 }
 
 .form-wrapper form {
@@ -126,6 +127,13 @@ z-index: 10;
     background-position: 96% center !important;
     padding-right: 3.5vw !important;
     padding-left: 0.5vw !important;
+    direction: rtl;
+    font-family: 'nazanin';
+}
+
+.form-wrapper form textarea.field-wrapper-fa {
+    font-family: 'nazanin';
+    direction: rtl;
 }
 .form-wrapper form input[id=feedback] {
     background-image: url(../../assets/icons/feedback-icon.svg);
@@ -146,7 +154,8 @@ z-index: 10;
     font-weight: 700;
     cursor: pointer;
     margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-family: inherit;
 }
 
 .form-wrapper form button:hover {
@@ -192,6 +201,7 @@ z-index: 10;
 .field-wrapper-fa {
     position: relative;
 }
+
 
 .field-wrapper-en span {
     color: red;
