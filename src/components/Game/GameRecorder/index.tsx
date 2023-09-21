@@ -2,23 +2,21 @@ import { FC, useCallback, useEffect, useRef, useState } from "react"; // Import 
 
 import cls from "classnames";
 import Webcam from "react-webcam";
+import io from "socket.io-client";
 
-import { useSocket } from "../../../hooks/useSocket";
+import { useWorker, WORKER_STATUS } from "@koale/useworker";
+
+// import { useSocket } from "../../../hooks/useSocket";
 import styles from "./styles.module.css";
 
-const videoConstraints = {
-  frameRate: { ideal: 30, max: 60 },
-};
+// const videoConstraints = {
+//   frameRate: { ideal: 20, max: 25 },
+// };
 
 interface IGameRecorder {
   className: string;
   onIncreaseBackendScore: (value: string) => void;
   gameCounter?: boolean;
-}
-
-interface Response {
-  result_prob: string;
-  result_img: string;
 }
 
 const GameRecorder: FC<IGameRecorder> = ({
@@ -29,26 +27,63 @@ const GameRecorder: FC<IGameRecorder> = ({
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
   const [userImg, setUserImg] = useState<string | null>(null);
-  const socket = useSocket("http://localhost:5000/smile", {
-    reconnectionAttempts: 5,
-    reconnectionDelay: 1000,
-    autoConnect: false,
-  });
 
-  const sendImg = useCallback(() => {
-    const imageSrc = webcamRef.current?.getScreenshot();
+  const socket = io("http://127.0.0.1:5000/", { transports: ["websocket"] });
 
-    socket.emit("send_image", { file: imageSrc });
+  const stream = useCallback(() => {
+    const interval = setInterval(() => {
+      const imageSrc = webcamRef.current?.getScreenshot();
+      setUserImg("" + imageSrc);
+      socket.emit("message", { file: imageSrc });
+    }, 33);
+
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 50000);
   }, [socket]);
 
-  useEffect(() => {
-    gameCounter && sendImg();
-  }, [sendImg, userImg, gameCounter]);
+  const [streamWorker, { status: streamWorkerStatus }] = useWorker(stream);
+
+  // useEffect(() => {
+
+  //   socket.on('connect',()=> {
+  //     console.log("connected to socket.io")
+  //   })
+  // }, []);
+
+  // const sendImg = useCallback(() => {
+  //   const imageSrc = webcamRef.current?.getScreenshot();
+  //   // setUserImg('' + imageSrc);
+  //   socket.emit('message', { file: imageSrc });
+  // }, [socket,gameCounter]);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const imageSrc = webcamRef.current?.getScreenshot();
+  //     setUserImg("" + imageSrc);
+  //     socket.emit("message", { file: imageSrc });
+  //   }, 150);
+  //   return () => clearInterval(interval);
+  // }, [socket, gameCounter]);
+
+  // useEffect(() => {
+  //   gameCounter && sendImg();
+  // }, [sendImg, gameCounter]);
 
   useEffect(() => {
-    socket.on("receive_data", (data: Response) => {
-      onIncreaseBackendScore(data.result_prob);
-      setUserImg(data.result_img);
+    console.log(WORKER_STATUS);
+    console.log("WORKER:", streamWorkerStatus);
+    gameCounter &&
+      streamWorker().then((result) => {
+        console.log("streaming Done! useWorker()", result);
+      });
+  }, [gameCounter, streamWorker, streamWorkerStatus]);
+
+  useEffect(() => {
+    socket.on("message", (data) => {
+      var rec = data.split("#");
+      onIncreaseBackendScore(rec[1]);
+      // setUserImg(rec[2]);
     });
   }, [socket, onIncreaseBackendScore]);
 
@@ -61,23 +96,25 @@ const GameRecorder: FC<IGameRecorder> = ({
       )}
       ref={wrapperRef}
     >
-      <Webcam
-        screenshotFormat="image/jpeg"
-        videoConstraints={videoConstraints}
-        mirrored={true}
-        imageSmoothing={true}
-        audio={false}
-        ref={webcamRef}
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          textAlign: "center",
-          zIndex: 9,
-          width: wrapperRef.current?.clientWidth,
-          height: wrapperRef.current?.clientHeight,
-        }}
-      />
+      {gameCounter && (
+        <Webcam
+          screenshotFormat="image/jpeg"
+          // videoConstraints={videoConstraints}
+          mirrored={true}
+          imageSmoothing={true}
+          audio={false}
+          ref={webcamRef}
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            textAlign: "center",
+            zIndex: 9,
+            width: wrapperRef.current?.clientWidth,
+            height: wrapperRef.current?.clientHeight,
+          }}
+        />
+      )}
       {userImg ? (
         <img
           src={userImg}
